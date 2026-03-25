@@ -24,6 +24,7 @@
   <script src="../js/navbar.js" defer></script>
   <script src="../js/filter.js" defer></script>
   <script src="../js/lazy-load.js" defer></script>
+  <script src="../js/thumbnail-cycle.js" defer></script>
 </head>
 <body>
   <div class="site-wrapper">
@@ -159,7 +160,9 @@
             <!-- Planet Glasidea -->
             <a href="/projects/planet-glasidea.html" class="project-card" data-tags="unreal,solo">
               <div class="project-card__thumbnail">
-                <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Planet Glasidea gameplay showing level design" loading="lazy">
+                <img src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.gif"
+                     data-thumbnails='["../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.gif","../assets/images/projects/planet-glasidea/glasidea-thumbnail-b.gif","../assets/images/projects/planet-glasidea/glasidea-thumbnail-c.gif"]'
+                     alt="Planet Glasidea gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
                   <img src="../assets/icons/unreal.png" alt="">
                   <span>UE5.2</span>
@@ -178,8 +181,10 @@
 
             <!-- Cloudtop Kingdom -->
             <a href="/projects/cloudtop-kingdom.html" class="project-card" data-tags="unreal,solo">
-              <div class="project-card__thumbnail">
-                <img src="../assets/images/projects/cloudtop-kingdom/thumbnail.gif" alt="Cloudtop Kingdom gameplay showing level design" loading="lazy">
+              <div class="project-card__thumbnail project-card__thumbnail--slideshow"
+                  data-slideshow-duration="60s"
+                  data-slideshow='["../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.png"]'>
+                <img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png" alt="Cloudtop Kingdom gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
                   <img src="../assets/icons/unreal.png" alt="">
                   <span>UE5.2</span>
