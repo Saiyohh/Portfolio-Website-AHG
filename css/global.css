@@ -19,6 +19,11 @@ main {
 }
 
 /* === Typography === */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+}
+
 h1 {
   font-size: var(--text-4xl);
   font-weight: 700;

@@ -13,6 +13,7 @@
 
   /* Typography */
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Fragment Mono', ui-monospace, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Font sizes */
