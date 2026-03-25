@@ -1,0 +1,130 @@
+/* === Resume Page === */
+.resume-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.resume-header h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.resume-download svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Resume content */
+.resume-content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.resume-section {
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume-section:last-child {
+  border-bottom: none;
+}
+
+.resume-section h2 {
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+/* Resume entry (experience, education) */
+.resume-entry {
+  margin-bottom: var(--space-xl);
+}
+
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-entry__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.resume-entry__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.resume-entry__org {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.resume-entry__date {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.resume-entry__description {
+  margin-top: var(--space-sm);
+}
+
+.resume-entry__description li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.resume-entry__description li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* Skills section */
+.resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.resume-skill {
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .resume-entry__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .resume-entry__date {
+    text-align: right;
+    white-space: nowrap;
+  }
+}

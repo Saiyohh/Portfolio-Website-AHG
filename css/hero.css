@@ -1,0 +1,61 @@
+/* === Homepage Hero === */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--navbar-height));
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.hero__reel {
+  width: 100%;
+  max-width: var(--content-max-width);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-2xl);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.hero__reel img,
+.hero__reel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder state when no demo reel is provided */
+.hero__reel--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+}
+
+.hero__name {
+  margin-bottom: var(--space-sm);
+}
+
+.hero__role {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2xl);
+}
+
+.hero__ctas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero__role {
+    font-size: var(--text-2xl);
+  }
+}
