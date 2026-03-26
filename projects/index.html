@@ -24,6 +24,7 @@
   <script src="../js/navbar.js" defer></script>
   <script src="../js/filter.js" defer></script>
   <script src="../js/lazy-load.js" defer></script>
+  <script src="../js/thumbnail-cycle.js" defer></script>
 </head>
 <body>
   <div class="site-wrapper">
@@ -31,11 +32,11 @@
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="navbar__inner">
-        <a href="../" class="navbar__logo">Alex Garcia</a>
+        <a href="/" class="navbar__logo">Alex Garcia</a>
 
         <div class="navbar__links">
-          <a href="./" class="navbar__link navbar__link--active">Projects</a>
-          <a href="../resume.html" class="navbar__link">Resume</a>
+          <a href="/projects/" class="navbar__link navbar__link--active">Projects</a>
+          <a href="/resume.html" class="navbar__link">Resume</a>
         </div>
 
         <div class="navbar__socials">
@@ -59,8 +60,8 @@
 
       <div class="navbar__overlay"></div>
       <div class="navbar__mobile-menu">
-        <a href="./" class="navbar__link navbar__link--active">Projects</a>
-        <a href="../resume.html" class="navbar__link">Resume</a>
+        <a href="/projects/" class="navbar__link navbar__link--active">Projects</a>
+        <a href="/resume.html" class="navbar__link">Resume</a>
         <div class="navbar__mobile-socials">
           <a href="https://itch.io/" class="navbar__social-link" aria-label="itch.io" target="_blank" rel="noopener">
             <img src="../assets/icons/itch.png" alt="itch.io" width="20" height="20">
@@ -97,7 +98,7 @@
           <div class="project-grid">
 
             <!-- KillCode: 404 -->
-            <a href="./killcode-404.html" class="project-card" data-tags="unity,team">
+            <a href="/projects/killcode-404.html" class="project-card" data-tags="unity,team">
               <div class="project-card__thumbnail">
                 <img src="../assets/images/projects/killcode-404/kcc404-thumbnail.gif" alt="KillCode: 404 gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
@@ -117,7 +118,7 @@
             </a>
 
             <!-- Devil's Gambit -->
-            <a href="./devils-gambit.html" class="project-card" data-tags="unity,team">
+            <a href="/projects/devils-gambit.html" class="project-card" data-tags="unity,team">
               <div class="project-card__thumbnail">
                 <img src="../assets/images/projects/devils-gambit/dv-thumbnail.gif" alt="Devil's Gambit gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
@@ -137,7 +138,7 @@
             </a>
 
             <!-- Trials of Aerlynn -->
-            <a href="./trials-of-aerlynn.html" class="project-card" data-tags="unreal,solo">
+            <a href="/projects/trials-of-aerlynn.html" class="project-card" data-tags="unreal,solo">
               <div class="project-card__thumbnail">
                 <img src="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.gif" alt="Trials of Aerlynn gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
@@ -157,9 +158,11 @@
             </a>
 
             <!-- Planet Glasidea -->
-            <a href="./planet-glasidea.html" class="project-card" data-tags="unreal,solo">
+            <a href="/projects/planet-glasidea.html" class="project-card" data-tags="unreal,solo">
               <div class="project-card__thumbnail">
-                <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Planet Glasidea gameplay showing level design" loading="lazy">
+                <img src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.gif"
+                     data-thumbnails='["../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.gif","../assets/images/projects/planet-glasidea/glasidea-thumbnail-b.gif","../assets/images/projects/planet-glasidea/glasidea-thumbnail-c.gif"]'
+                     alt="Planet Glasidea gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
                   <img src="../assets/icons/unreal.png" alt="">
                   <span>UE5.2</span>
@@ -177,9 +180,11 @@
             </a>
 
             <!-- Cloudtop Kingdom -->
-            <a href="./cloudtop-kingdom.html" class="project-card" data-tags="unreal,solo">
-              <div class="project-card__thumbnail">
-                <img src="../assets/images/projects/cloudtop-kingdom/thumbnail.gif" alt="Cloudtop Kingdom gameplay showing level design" loading="lazy">
+            <a href="/projects/cloudtop-kingdom.html" class="project-card" data-tags="unreal,solo">
+              <div class="project-card__thumbnail project-card__thumbnail--slideshow"
+                  data-slideshow-duration="60s"
+                  data-slideshow='["../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.png"]'>
+                <img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png" alt="Cloudtop Kingdom gameplay showing level design" loading="lazy">
                 <div class="project-card__engine">
                   <img src="../assets/icons/unreal.png" alt="">
                   <span>UE5.2</span>
