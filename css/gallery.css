@@ -1,0 +1,190 @@
+/* ──────────────────────────────────────────────
+   gallery.css — Image Display Components
+   Tiled Gallery, Sliding Gallery, Static Inline
+   ────────────────────────────────────────────── */
+
+/* ── A) Tiled Gallery ── */
+
+.gallery-tiled {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.gallery-tiled img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  display: block;
+}
+
+.gallery-tiled img:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 500px) {
+  .gallery-tiled {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── B) Sliding Gallery ── */
+
+.gallery-slider {
+  position: relative;
+  margin: var(--space-lg) 0;
+}
+
+.gallery-slider__viewport {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.gallery-slider__track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slider__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.gallery-slider__slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* Caption */
+.gallery-slider__caption {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--space-sm) var(--space-xs);
+  min-height: 1.8em;
+}
+
+/* Navigation arrows */
+.gallery-slider__nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.gallery-slider__nav--prev { left: 0; }
+.gallery-slider__nav--next { right: 0; }
+
+.gallery-slider__nav-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+}
+
+.gallery-slider__nav:hover .gallery-slider__nav-icon {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.gallery-slider__nav svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+/* Thumbnail strip */
+.gallery-slider__thumbs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  overflow-x: auto;
+  padding: var(--space-xs) 0;
+  scrollbar-width: thin;
+}
+
+.gallery-slider__thumb {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 45px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+}
+
+.gallery-slider__thumb--active {
+  border-color: var(--color-accent);
+  opacity: 1;
+}
+
+@keyframes gallery-slider-blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+.gallery-slider__thumb--next-up {
+  animation: gallery-slider-blink 1s ease-in-out infinite;
+}
+
+/* Hide nav arrows on very small screens */
+@media (max-width: 500px) {
+  .gallery-slider__nav {
+    display: none;
+  }
+}
+
+/* ── C) Static Inline Image ── */
+
+.inline-image {
+  margin: var(--space-lg) 0;
+}
+
+.inline-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.inline-image img:hover {
+  opacity: 0.9;
+}
+
+.inline-image figcaption {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+/* ── Reduced Motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-slider__track {
+    transition: none;
+  }
+  .gallery-slider__thumb--next-up {
+    animation: none;
+  }
+}

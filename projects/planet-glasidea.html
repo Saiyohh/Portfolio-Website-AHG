@@ -20,61 +20,20 @@
   <link rel="stylesheet" href="../css/project-detail.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
-  <script src="../js/navbar.js" defer></script>
+  <script src="../js/components.js" defer></script>
+  <script src="../js/gallery-slider.js" defer></script>
   <script src="../js/lightbox.js" defer></script>
+  <script src="../js/navbar.js" defer></script>
   <script src="../js/toc.js" defer></script>
 </head>
 <body>
   <div class="site-wrapper">
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar__inner">
-        <a href="../" class="navbar__logo">Alex Garcia</a>
-
-        <div class="navbar__links">
-          <a href="./" class="navbar__link navbar__link--active">Projects</a>
-          <a href="../resume.html" class="navbar__link">Resume</a>
-        </div>
-
-        <div class="navbar__socials">
-          <a href="https://itch.io/" class="navbar__social-link" aria-label="itch.io" target="_blank" rel="noopener">
-            <img src="../assets/icons/itch.png" alt="itch.io" width="20" height="20">
-          </a>
-          <a href="https://linkedin.com/" class="navbar__social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="mailto:alexhgarciadesign@gmail.com" class="navbar__social-link" aria-label="Email">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-        </div>
-
-        <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <div class="navbar__overlay"></div>
-      <div class="navbar__mobile-menu">
-        <a href="./" class="navbar__link navbar__link--active">Projects</a>
-        <a href="../resume.html" class="navbar__link">Resume</a>
-        <div class="navbar__mobile-socials">
-          <a href="https://itch.io/" class="navbar__social-link" aria-label="itch.io" target="_blank" rel="noopener">
-            <img src="../assets/icons/itch.png" alt="itch.io" width="20" height="20">
-          </a>
-          <a href="https://linkedin.com/" class="navbar__social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="mailto:alexhgarciadesign@gmail.com" class="navbar__social-link" aria-label="Email">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-        </div>
-      </div>
-    </nav>
+    <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
@@ -98,11 +57,11 @@
         </div>
         <div class="project-meta__item">
           <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">— members</span>
+          <span class="project-meta__value">Solo</span>
         </div>
         <div class="project-meta__item">
           <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">—</span>
+          <span class="project-meta__value">2023</span>
         </div>
       </div>
 
@@ -134,28 +93,17 @@
           </div>
 
           <h2 id="overview">Overview</h2>
-          <p>Placeholder overview for Planet Glasidea. Describe the project concept, your role, and what makes this level design work noteworthy.</p>
+          <p>Planet Glasidea is an FPS level design study built in Unity, inspired by the environmental storytelling and encounter design of Destiny. The project explores how sci-fi environments can guide players through combat spaces while maintaining a sense of wonder and discovery on an alien world.</p>
 
-          <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Planet Glasidea overview screenshot" class="lightbox-trigger" data-full-src="../assets/images/projects/planet-glasidea/thumbnail.gif">
-
-          <h2 id="level-layout">Level Layout</h2>
-          <p>Describe the spatial design, flow, and key areas of the level. What was the player experience you were designing for?</p>
-
-          <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Level layout top-down view" class="lightbox-trigger" data-full-src="../assets/images/projects/planet-glasidea/thumbnail.gif">
+          <h2 id="level-design">Level Design</h2>
+          <p>The level is designed around a Destiny-style patrol zone — an open area with distinct landmarks that funnel players toward combat encounters and points of interest. Sight lines, elevation changes, and environmental cues direct flow without hard barriers, encouraging exploration while keeping players on a readable critical path.</p>
+          <p>Cover placement and engagement distances are calibrated for FPS combat — each arena offers multiple approach angles and fallback positions, giving players tactical options within the space.</p>
 
           <h2 id="design-process">Design Process</h2>
-          <p>Walk through the iteration process. How did the level evolve from blockout to final? What feedback drove changes?</p>
-
-          <div class="image-pair">
-            <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Early blockout" class="lightbox-trigger" data-full-src="../assets/images/projects/planet-glasidea/thumbnail.gif">
-            <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Final version" class="lightbox-trigger" data-full-src="../assets/images/projects/planet-glasidea/thumbnail.gif">
-          </div>
-
-          <h2 id="key-challenges">Key Challenges</h2>
-          <p>What were the biggest design challenges? How did you solve them?</p>
+          <p>The level began as a top-down sketch focused on flow and pacing, then moved into Unity for blockout. Iteration focused on the relationship between traversal spaces (low intensity, scenic) and combat arenas (high intensity, tactical), ensuring smooth transitions between the two so the level never felt like a series of disconnected rooms.</p>
 
           <h2 id="results">Results &amp; Takeaways</h2>
-          <p>What was the outcome? What did you learn? Include any metrics, playtest data, or player feedback.</p>
+          <p>Planet Glasidea was a valuable exercise in designing for a specific genre's spatial language. Destiny's levels work because they balance spectacle with function — every vista doubles as a waypoint, every canyon doubles as a funnel. Recreating that philosophy from scratch deepened my understanding of how FPS spaces are composed at a fundamental level.</p>
 
           <!-- Previous / Next nav -->
           <nav class="project-nav" aria-label="Project navigation">
@@ -174,26 +122,7 @@
     </main>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-      <div class="container footer__inner">
-        <p class="footer__copyright">&copy; 2026 Alexander H Garcia</p>
-        <p class="footer__info">Oakland, CA</p>
-        <div class="footer__links">
-          <a href="https://itch.io/" class="footer__link" target="_blank" rel="noopener">
-            <img src="../assets/icons/itch.png" alt="" width="18" height="18">
-            itch.io
-          </a>
-          <a href="https://linkedin.com/" class="footer__link" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="mailto:alexhgarciadesign@gmail.com" class="footer__link">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Email
-          </a>
-        </div>
-      </div>
-    </footer>
+    <footer id="footer-placeholder"></footer>
 
   </div>
 </body>

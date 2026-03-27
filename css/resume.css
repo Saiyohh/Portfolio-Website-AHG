@@ -64,9 +64,55 @@
   margin-bottom: var(--space-sm);
 }
 
+.resume-entry__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.resume-entry__game-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.resume-entry__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.resume-entry__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: all var(--transition-fast);
+}
+
+.resume-entry__link svg {
+  width: 18px;
+  height: 18px;
+  fill: #ddd;
+  transition: fill var(--transition-fast);
+}
+
+.resume-entry__link:hover svg {
+  fill: var(--color-accent);
+}
+
+
+.resume-entry__title,
+.resume-entry__org,
+.resume-entry__date {
+  margin: 0;
+}
+
 .resume-entry__title {
-  font-size: var(--text-lg);
-  font-weight: 600;
+  font-size: var(--text-base);
+  font-weight: 500;
   color: var(--color-text-primary);
 }
 
@@ -116,15 +162,26 @@
   color: var(--color-text-secondary);
 }
 
-@media (min-width: 768px) {
-  .resume-entry__header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+/* Skills list (category rows) */
+.resume-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
 
+.resume-skills-row {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.resume-skills-row strong {
+  color: var(--color-text-primary);
+  margin-right: var(--space-sm);
+}
+
+@media (min-width: 768px) {
   .resume-entry__date {
-    text-align: right;
-    white-space: nowrap;
+    text-align: left;
   }
 }
