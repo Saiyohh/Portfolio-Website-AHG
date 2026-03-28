@@ -139,19 +139,19 @@
   position: fixed;
   top: var(--navbar-height);
   right: 0;
-  bottom: 0;
-  width: 280px;
+  width: 100%;
+  max-height: calc(100vh - var(--navbar-height));
   background-color: var(--color-bg-secondary);
-  border-left: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   padding: var(--space-xl);
-  transform: translateX(100%);
+  transform: translateY(-150%);
   transition: transform var(--transition-slow);
   z-index: 999;
   overflow-y: auto;
 }
 
 .navbar__mobile-menu.is-open {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .navbar__mobile-menu .navbar__link {

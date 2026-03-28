@@ -18,12 +18,14 @@
 
 .project-hero__overlay {
   position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: var(--space-2xl) var(--space-xl);
-  background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+  padding: var(--space-xl);
+  background: rgba(10, 10, 10, 0.45);
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -33,7 +35,8 @@
   font-size: var(--text-3xl);
   font-weight: 700;
   text-align: center;
-  margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 0;
 }
 
 /* Metadata bar — full-width background, centered content */

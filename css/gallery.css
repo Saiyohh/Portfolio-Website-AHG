@@ -121,8 +121,8 @@
 
 .gallery-slider__thumb {
   flex: 0 0 auto;
-  width: 80px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
   border-radius: var(--radius-sm);
   object-fit: cover;
   cursor: pointer;
