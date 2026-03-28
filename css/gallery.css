@@ -112,6 +112,7 @@
 /* Thumbnail strip */
 .gallery-slider__thumbs {
   display: flex;
+  justify-content: center;
   gap: var(--space-sm);
   margin-top: var(--space-sm);
   overflow-x: auto;
@@ -119,9 +120,11 @@
   scrollbar-width: thin;
 }
 
-.gallery-slider__thumb {
-  flex: 0 0 auto;
+img.gallery-slider__thumb {
+  flex: 0 0 60px;
   width: 60px;
+  min-width: 60px;
+  max-width: 60px;
   height: 60px;
   border-radius: var(--radius-sm);
   object-fit: cover;
