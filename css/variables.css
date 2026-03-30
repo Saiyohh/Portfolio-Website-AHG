@@ -13,7 +13,7 @@
 
   /* Typography */
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Fragment Mono', ui-monospace, monospace;
+  --font-heading: 'Share Tech Mono', ui-monospace, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Font sizes */
@@ -39,7 +39,7 @@
 
   /* Layout */
   --content-max-width: 900px;
-  --grid-max-width: 1200px;
+  --grid-max-width: 1560px;
   --navbar-height: 64px;
 
   /* Borders */
