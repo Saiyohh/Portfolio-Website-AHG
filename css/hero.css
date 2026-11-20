@@ -10,8 +10,10 @@
 }
 
 .hero__reel {
-  width: 100%;
-  max-width: 1260px;
+  /* Sized from the available height so name + CTAs always fit in the locked viewport.
+     17rem = name + role + buttons + footer + gaps. */
+  width: min(100%, 1260px, calc((100vh - var(--navbar-height) - 17rem) * 16 / 9));
+  width: min(100%, 1260px, calc((100dvh - var(--navbar-height) - 17rem) * 16 / 9));
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -25,15 +27,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Placeholder state when no demo reel is provided */
-.hero__reel--placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-secondary);
-  font-size: var(--text-lg);
 }
 
 .hero__name {
@@ -57,6 +50,7 @@
 /* Homepage: lock to viewport, no scroll */
 .page-home {
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -64,6 +58,11 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
+}
+
+.page-home .hero {
+  min-height: 0;
 }
 
 .page-home .footer {

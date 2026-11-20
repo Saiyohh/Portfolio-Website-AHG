@@ -53,10 +53,14 @@
   min-width: 0;
 }
 
-.gallery-slider__slide img {
+.gallery-slider__slide img,
+.gallery-slider__slide video {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.gallery-slider__slide img {
   cursor: pointer;
 }
 

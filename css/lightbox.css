@@ -89,9 +89,8 @@
   right: var(--space-xl);
 }
 
-/* Hide nav arrows on mobile (swipe instead) */
+/* Keep arrows closer to the edge on small screens so they do not cover the image */
 @media (max-width: 640px) {
-  .lightbox__nav {
-    display: none;
-  }
+  .lightbox__nav--prev { left: var(--space-sm); }
+  .lightbox__nav--next { right: var(--space-sm); }
 }

@@ -220,24 +220,16 @@
   width: 100%;
   border-radius: var(--radius-md);
   margin: var(--space-lg) 0;
+}
+
+/* Only images open the lightbox */
+.project-content img {
   cursor: pointer;
   transition: opacity var(--transition-fast);
 }
 
 .project-content img:hover {
   opacity: 0.9;
-}
-
-/* Two-column image layout */
-.project-content .image-pair {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-  margin: var(--space-lg) 0;
-}
-
-.project-content .image-pair img {
-  margin: 0;
 }
 
 /* Previous / Next navigation */
@@ -297,10 +289,6 @@
 
   .project-toc-mobile {
     display: none;
-  }
-
-  .project-content .image-pair {
-    grid-template-columns: 1fr 1fr;
   }
 }
 

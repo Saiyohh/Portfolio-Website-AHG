@@ -47,11 +47,12 @@
     var thumbs = [];
 
     slides.forEach(function (slide, i) {
-      var img = slide.querySelector('img');
-      if (!img) return;
+      var media = slide.querySelector('img, video');
+      if (!media) return;
       var thumb = document.createElement('img');
       thumb.className = 'gallery-slider__thumb';
-      thumb.src = img.src;
+      // Videos use their poster frame as the thumbnail
+      thumb.src = media.tagName === 'VIDEO' ? media.poster : media.src;
       thumb.alt = 'Slide ' + (i + 1);
       thumb.addEventListener('click', function () { goToSlide(i); });
       thumbsContainer.appendChild(thumb);
@@ -104,11 +105,9 @@
 
     function updateThumbs() {
       thumbs.forEach(function (t, i) {
-        t.classList.remove('gallery-slider__thumb--active', 'gallery-slider__thumb--dimmed', 'gallery-slider__thumb--next-up');
+        t.classList.remove('gallery-slider__thumb--active', 'gallery-slider__thumb--next-up');
         if (i === currentIndex) {
           t.classList.add('gallery-slider__thumb--active');
-        } else {
-          t.classList.add('gallery-slider__thumb--dimmed');
         }
       });
     }

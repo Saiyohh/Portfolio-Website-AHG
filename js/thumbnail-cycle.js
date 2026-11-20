@@ -1,22 +1,7 @@
-/* Thumbnail cycling for project cards.
-   - GIF mode:       data-thumbnails on <img> — swaps src every 6s
-   - Slideshow mode:  data-slideshow on .project-card__thumbnail — continuous marquee scroll */
+/* Thumbnail slideshow for project cards.
+   data-slideshow on .project-card__thumbnail — continuous marquee scroll */
 
 (function () {
-  var INTERVAL = 6000;
-
-  /* === GIF cycling === */
-  document.querySelectorAll('img[data-thumbnails]').forEach(function (img) {
-    var srcs = JSON.parse(img.dataset.thumbnails);
-    if (srcs.length < 2) return;
-
-    var index = 0;
-    setInterval(function () {
-      index = (index + 1) % srcs.length;
-      img.src = srcs[index];
-    }, INTERVAL);
-  });
-
   /* === Image slideshow (continuous marquee) === */
   document.querySelectorAll('[data-slideshow]').forEach(function (container) {
     var srcs = JSON.parse(container.dataset.slideshow);

@@ -1,15 +1,27 @@
-/* === Thumbnail Hover: lazy-load GIF on mouseenter === */
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.project-card').forEach(card => {
-    const gif = card.querySelector('.project-card__gif');
-    if (!gif) return;
+/* === Thumbnail hover: load and play the card's preview video on hover/focus === */
+(function () {
+  document.querySelectorAll('.project-card').forEach(function (card) {
+    var video = card.querySelector('video.project-card__gif');
+    if (!video) return;
 
-    card.addEventListener('mouseenter', () => {
-      // Lazy-load GIF src on first hover
-      if (!gif.src || gif.src === window.location.href) {
-        const gifSrc = gif.getAttribute('data-gif');
-        if (gifSrc) gif.src = gifSrc;
+    function play() {
+      // Attach the source on first hover so nothing downloads until needed
+      if (!video.getAttribute('src')) {
+        var src = video.getAttribute('data-src');
+        if (!src) return;
+        video.src = src;
       }
-    });
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+
+    function pause() {
+      video.pause();
+    }
+
+    card.addEventListener('mouseenter', play);
+    card.addEventListener('focusin', play);
+    card.addEventListener('mouseleave', pause);
+    card.addEventListener('focusout', pause);
   });
-});
+})();

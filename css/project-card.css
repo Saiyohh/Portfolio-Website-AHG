@@ -82,7 +82,9 @@
   border-radius: var(--radius-lg);
 }
 
-/* Static hero image — visible by default */
+/* Stacking inside the thumbnail: static 1, gif 2, logo overlay 3, engine badge 4.
+   The static image stays visible underneath so the card never goes blank
+   while a large GIF is still downloading. */
 .project-card__static {
   position: absolute;
   top: 0;
@@ -90,11 +92,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 2;
-  transition: opacity var(--transition-normal);
+  z-index: 1;
 }
 
-/* GIF — hidden by default, shown on hover */
+/* GIF — hidden by default, fades in over the static image on hover */
 .project-card__gif {
   position: absolute;
   top: 0;
@@ -102,7 +103,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
@@ -140,29 +141,15 @@
   letter-spacing: 0.05em;
 }
 
-/* Hover: hide static + overlay, show GIF */
-.project-card:hover .project-card__static {
-  opacity: 0;
-}
-
-.project-card:hover .project-card__gif {
+/* Hover or keyboard focus: hide overlay, show preview video */
+.project-card:hover .project-card__gif,
+.project-card:focus-within .project-card__gif {
   opacity: 1;
 }
 
-.project-card:hover .project-card__logo-overlay {
+.project-card:hover .project-card__logo-overlay,
+.project-card:focus-within .project-card__logo-overlay {
   opacity: 0;
-}
-
-/* Legacy direct img (fallback) */
-.project-card__thumbnail > img:not(.project-card__static):not(.project-card__gif) {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.project-card:hover .project-card__thumbnail > img:not(.project-card__static):not(.project-card__gif) {
-  transform: scale(1.03);
 }
 
 /* Engine icon overlay */
@@ -177,6 +164,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   border-radius: var(--radius-sm);
+  z-index: 4;
 }
 
 .project-card__engine img {
