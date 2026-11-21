@@ -1,0 +1,409 @@
+/* === Projects page ===
+   A stage-select screen. Studio and team work are full-width strips: footage
+   at the left, the facts beside it, an Open block at the right end. Solo level
+   tests sit below as a compact row of three. */
+.projects {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px clamp(16px, 2.8vw, 40px) 72px;
+}
+
+.projects__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.projects__title {
+  font-size: 60px;
+  line-height: 0.95;
+}
+
+.tier-heading {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-grey);
+}
+
+.tier-heading--solo {
+  margin: 58px 0 14px;
+}
+
+/* --- Strip --- */
+.strip {
+  --c: var(--ps-triangle);
+  display: grid;
+  grid-template-columns: minmax(280px, 400px) 1fr auto;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 14px;
+  padding-right: 28px;
+  border: 2px solid var(--color-line);
+  background-color: var(--color-void);
+  color: var(--color-fg);
+}
+
+.strip:hover {
+  color: var(--color-fg);
+}
+
+.strip:focus-visible,
+.solo:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+/* Footage: still underneath, clip over it, logo on top */
+.strip__media {
+  position: relative;
+  /* fills the strip's height when the facts run taller than 16:9 */
+  align-self: stretch;
+  overflow: hidden;
+  background-color: var(--color-void);
+}
+
+/* holds the footage at 16:9 or taller */
+.strip__media::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%;
+}
+
+.strip__still,
+.strip__clip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.strip__clip {
+  opacity: 0;
+}
+
+.strip__logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--logo-inset, 14%);
+  /* a flat dim keeps logo art readable over its still; it lifts with the
+     logo when the clip plays */
+  background-color: var(--color-dim);
+}
+
+.strip__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Cloudtop Kingdom has no clip: its screenshots scroll past instead */
+.slideshow__track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+}
+
+.slideshow__track img {
+  flex-shrink: 0;
+  width: auto;
+  max-width: none;
+  height: 100%;
+}
+
+/* Facts */
+.strip__facts {
+  padding: 16px 0;
+  min-width: 0;
+}
+
+.strip__title {
+  font-size: 54px;
+  line-height: 0.95;
+}
+
+.strip__role {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-fg);
+}
+
+/* Role and team size sit on one line with a dot between them. When the line
+   wraps, the dot at the start of the new line falls in the clipped left
+   margin, so no separator is ever left dangling. */
+.strip__role {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1.1em;
+  clip-path: inset(0 0 0 1.1em);
+}
+
+.strip__role span {
+  position: relative;
+  padding-left: 1.1em;
+}
+
+.strip__role span::before {
+  content: '·';
+  position: absolute;
+  left: 0.4em;
+}
+
+.strip__award {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 6px 12px;
+  background-color: var(--ps-gold);
+  font-family: var(--font-pixel);
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tags li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 2px solid var(--color-line);
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--color-grey);
+}
+
+/* engine and status read a step louder than genre tags */
+.tags .tags__key {
+  border-color: var(--color-grey);
+  color: var(--color-fg);
+}
+
+/* single-colour engine icons, tinted by the tag's text colour */
+.tags__key--unity::before,
+.tags__key--unreal::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.tags__key--unity::before {
+  /* unity.svg is the wide wordmark; the PNG is the cube mark with alpha */
+  -webkit-mask-image: url(../assets/icons/unity.png);
+  mask-image: url(../assets/icons/unity.png);
+}
+
+.tags__key--unreal::before {
+  -webkit-mask-image: url(../assets/icons/unreal.svg);
+  mask-image: url(../assets/icons/unreal.svg);
+}
+
+.strip__open {
+  padding: 14px 22px;
+}
+
+/* One entry is always selected, like a cursor on a select screen: the first
+   at rest, then whichever was last hovered or focused (js/thumbnail-hover.js).
+   The selected entry's outline is green and its Open block is filled. */
+.project-card.is-selected {
+  border-color: var(--c);
+}
+
+.is-selected .strip__open {
+  color: #000;
+  border-color: var(--c);
+  transition-delay: calc(var(--fill-time) * 0.8);
+}
+
+.is-selected .strip__open::before {
+  transform: scaleY(1);
+}
+
+/* While the pointer or keyboard focus is on an entry its clip plays in place
+   of the still and logo. */
+.project-card:focus-visible .strip__clip[src] {
+  opacity: 1;
+}
+
+.project-card:focus-visible .strip__clip[src] ~ .strip__logo {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .project-card:hover .strip__clip[src] {
+    opacity: 1;
+  }
+
+  .project-card:hover .strip__clip[src] ~ .strip__logo {
+    opacity: 0;
+  }
+}
+
+/* A project whose footage and project page are still to come */
+.strip__media--pending::before {
+  content: none;
+}
+
+.strip__media--pending {
+  align-self: center;
+  aspect-ratio: 16 / 5;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--color-line);
+  font-family: var(--font-pixel);
+  font-size: 26px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+.strip--pending .strip__facts {
+  padding: 12px 0;
+}
+
+.strip--pending .strip__title {
+  font-size: 40px;
+}
+
+.strip__note {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+/* --- Solo tier --- */
+.solo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.solo {
+  --c: var(--ps-triangle);
+  display: block;
+  border: 2px solid var(--color-line);
+  background-color: var(--color-void);
+  color: var(--color-fg);
+}
+
+.solo:hover {
+  color: var(--color-fg);
+}
+
+.solo__facts {
+  padding: 14px 16px 16px;
+}
+
+.solo__title {
+  font-size: 34px;
+  line-height: 0.95;
+}
+
+.solo__role {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--color-grey);
+}
+
+.solo .tags {
+  margin-top: 12px;
+}
+
+/* The pixel face runs small for its size; lift facts when it is chosen */
+html[data-body-font="pixel"] .strip__role {
+  font-size: 26px;
+  line-height: 1;
+}
+
+html[data-body-font="pixel"] .tags li,
+html[data-body-font="pixel"] .solo__role {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* --- Narrower desktops --- */
+@media (max-width: 1099px) {
+  .strip {
+    grid-template-columns: 300px 1fr auto;
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .strip__title {
+    font-size: 40px;
+  }
+
+  .solo__title {
+    font-size: 30px;
+  }
+}
+
+/* --- Phones and small tablets: footage on top, facts beneath --- */
+@media (max-width: 799px) {
+  .projects__title {
+    font-size: 40px;
+  }
+
+  .strip {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-right: 0;
+  }
+
+  .strip__facts {
+    padding: 16px;
+  }
+
+  .strip__open {
+    margin: 0 16px 16px;
+    text-align: center;
+  }
+
+  .strip--pending .strip__facts {
+    padding: 12px 16px;
+  }
+
+  .strip__note {
+    margin: 0 16px 16px;
+  }
+
+  .solo-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Headings sit on flat void plates, so they never rest on the scanlines */
+.projects__top,
+.tier-heading--solo {
+  margin-left: -12px;
+  margin-right: -12px;
+  padding: 8px 12px;
+  background-color: var(--color-void);
+}
+
+.tier-heading--solo {
+  width: fit-content;
+}

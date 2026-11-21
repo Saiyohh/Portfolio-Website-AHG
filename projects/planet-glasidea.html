@@ -3,122 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Planet Glasidea — Level design breakdown by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Planet Glasidea, an FPS level design study built in Unreal Engine 5 by Alexander H Garcia.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>Planet Glasidea — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-detail.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
-  <script src="../js/gallery-slider.js" defer></script>
-  <script src="../js/lightbox.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/toc.js" defer></script>
+  <script src="../js/project-viewer.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-project">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <!-- Project hero -->
-      <div class="project-hero">
-        <img src="../assets/images/projects/planet-glasidea/thumbnail.gif" alt="Planet Glasidea hero image">
-        <div class="project-hero__overlay">
-          <h1 class="project-hero__title">Planet Glasidea</h1>
-        </div>
-      </div>
+      <article class="pp">
+        <div class="pp__panel">
 
-      <!-- Metadata bar -->
-      <div class="project-meta">
-        <div class="project-meta__item">
-          <span class="project-meta__label">Engine</span>
-          <span class="project-meta__value">Unity</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Role</span>
-          <span class="project-meta__value">Level Designer</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">Solo</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">2023</span>
-        </div>
-      </div>
+          <!-- Top: the work beside the facts -->
+          <header class="pp-top">
+            <div class="viewer">
+              <div class="viewer__stage">
+                <video src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.mp4" poster="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a-poster.jpg" autoplay muted loop playsinline aria-label="Planet Glasidea gameplay, clip 1"></video>
+                <button type="button" class="block viewer__pause" aria-pressed="false">Pause</button>
+              </div>
+              <div class="viewer__thumbs" style="--cols: 3">
+                <button type="button" class="viewer__thumb" aria-pressed="true" aria-label="Planet Glasidea gameplay, clip 1" data-video="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.mp4" data-poster="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a-poster.jpg"><img src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Planet Glasidea gameplay, clip 2" data-video="../assets/images/projects/planet-glasidea/glasidea-thumbnail-b.mp4" data-poster="../assets/images/projects/planet-glasidea/glasidea-thumbnail-b-poster.jpg"><img src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-b-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Planet Glasidea gameplay, clip 3" data-video="../assets/images/projects/planet-glasidea/glasidea-thumbnail-c.mp4" data-poster="../assets/images/projects/planet-glasidea/glasidea-thumbnail-c-poster.jpg"><img src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-c-poster.jpg" alt=""></button>
+              </div>
+            </div>
+            <div class="pp-facts">
+              <h1 class="pp-title">Planet Glasidea</h1>
+              <p class="strip__role"><span>Level Designer, solo project</span> <span>2023</span></p>
+              <ul class="tags"><li class="tags__key tags__key--unreal">UE5.2</li><li>Level Test</li><li>Destiny 2</li><li>Combat-former</li></ul>
+              <div class="pp-did">
+                <h2>What I did</h2>
+                <ul class="pp-list">
+                  <li>Designed a Destiny-style patrol zone: an open area whose landmarks funnel players toward encounters.</li>
+                  <li>Directed flow with sight lines, elevation changes, and environmental cues instead of hard barriers.</li>
+                  <li>Calibrated cover and engagement distances for FPS combat, with multiple approach angles in each arena.</li>
+                </ul>
+              </div>
+            </div>
+          </header>
 
-      <!-- Content with TOC -->
-      <div class="project-layout">
+          <section class="pp-section">
+            <h2>The level</h2>
+            <p>Planet Glasidea is an FPS level design study built in Unreal Engine 5, inspired by the environmental storytelling and encounter design of Destiny. It explores how a sci-fi environment can guide players through combat spaces while keeping a sense of wonder and discovery on an alien world.</p>
+            <p>The open area encourages exploration while keeping players on a readable critical path. Each arena offers fallback positions as well as approach angles, giving players tactical options within the space.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Process</h2>
+            <p>The level began as a top-down sketch focused on flow and pacing, then moved into Unreal for blockout. Iteration focused on the relationship between traversal spaces (low intensity, scenic) and combat arenas (high intensity, tactical), so the level never felt like a series of disconnected rooms.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Takeaways</h2>
+            <p>Destiny's levels work because they balance spectacle with function: every vista doubles as a waypoint, every canyon doubles as a funnel. Recreating that philosophy from scratch deepened my understanding of how FPS spaces are composed.</p>
+          </section>
 
-        <!-- Desktop TOC sidebar -->
-        <aside class="project-toc">
-          <nav class="project-toc__nav" aria-label="Table of contents">
-            <p class="project-toc__title">Contents</p>
-            <ul class="project-toc__list" id="toc-list">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </nav>
-        </aside>
-
-        <!-- Main content -->
-        <article class="project-content" id="project-content">
-
-          <!-- Mobile TOC (collapsible) -->
-          <div class="project-toc-mobile">
-            <button class="project-toc-mobile__toggle" aria-expanded="false">
-              Table of Contents
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <ul class="project-toc-mobile__list" id="toc-list-mobile">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </div>
-
-          <h2 id="overview">Overview</h2>
-          <p>Planet Glasidea is an FPS level design study built in Unity, inspired by the environmental storytelling and encounter design of Destiny. The project explores how sci-fi environments can guide players through combat spaces while maintaining a sense of wonder and discovery on an alien world.</p>
-
-          <h2 id="level-design">Level Design</h2>
-          <p>The level is designed around a Destiny-style patrol zone — an open area with distinct landmarks that funnel players toward combat encounters and points of interest. Sight lines, elevation changes, and environmental cues direct flow without hard barriers, encouraging exploration while keeping players on a readable critical path.</p>
-          <p>Cover placement and engagement distances are calibrated for FPS combat — each arena offers multiple approach angles and fallback positions, giving players tactical options within the space.</p>
-
-          <h2 id="design-process">Design Process</h2>
-          <p>The level began as a top-down sketch focused on flow and pacing, then moved into Unity for blockout. Iteration focused on the relationship between traversal spaces (low intensity, scenic) and combat arenas (high intensity, tactical), ensuring smooth transitions between the two so the level never felt like a series of disconnected rooms.</p>
-
-          <h2 id="results">Results &amp; Takeaways</h2>
-          <p>Planet Glasidea was a valuable exercise in designing for a specific genre's spatial language. Destiny's levels work because they balance spectacle with function — every vista doubles as a waypoint, every canyon doubles as a funnel. Recreating that philosophy from scratch deepened my understanding of how FPS spaces are composed at a fundamental level.</p>
-
-          <!-- Previous / Next nav -->
-          <nav class="project-nav" aria-label="Project navigation">
-            <a href="./trials-of-aerlynn.html" class="project-nav__link project-nav__link--prev">
-              <span class="project-nav__label">Previous Project</span>
-              <span class="project-nav__title">Trials of Aerlynn</span>
-            </a>
-            <a href="./cloudtop-kingdom.html" class="project-nav__link project-nav__link--next">
-              <span class="project-nav__label">Next Project</span>
-              <span class="project-nav__title">Cloudtop Kingdom</span>
-            </a>
+          <!-- Previous / next -->
+          <nav class="pp-nav" aria-label="More projects">
+            <a href="./trials-of-aerlynn.html" class="block">Previous: Trials of Aerlynn</a>
+            <a href="./index.html" class="block block--tri">All projects</a>
+            <a href="./cloudtop-kingdom.html" class="block pp-nav__next">Next: Cloudtop Kingdom</a>
           </nav>
 
-        </article>
-      </div>
+        </div>
+      </article>
     </main>
 
     <!-- ========== FOOTER ========== -->

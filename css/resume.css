@@ -1,187 +1,297 @@
-/* === Resume Page === */
+/* === Resume page ===
+   A document to read. Section names sit in a left rail and stay in view while
+   their entries scroll past on the right; on narrow screens they stack. */
+.resume {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px clamp(16px, 2.8vw, 40px) 72px;
+}
+
 .resume-header {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
   align-items: center;
-  text-align: center;
-  margin-bottom: var(--space-2xl);
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  /* joins the void panel below, so the title never sits on scanlines */
+  margin: 0 -28px;
+  padding: 12px 28px 26px;
+  background-color: var(--color-void);
 }
 
 .resume-header h1 {
-  margin-bottom: var(--space-sm);
+  font-size: 60px;
+  line-height: 0.95;
 }
 
 .resume-download {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
+  padding: 14px 22px;
 }
 
-.resume-download svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
-/* Resume content */
+/* The document sits on a flat void panel, so nothing that is read is ever
+   scanlined; the scanlines stay in the page gutters. The panel is wider than
+   the text by its padding, so text still lines up with the page title. */
 .resume-content {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
+  margin: 0 -28px;
+  padding: 0 28px;
+  background-color: var(--color-void);
 }
 
+/* --- Section: name in the rail, entries beside it --- */
 .resume-section {
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  column-gap: 40px;
+  padding: 26px 0 30px;
+  border-top: 2px solid var(--color-line);
 }
 
-.resume-section:last-child {
-  border-bottom: none;
+.resume-section > h2 {
+  grid-column: 1;
+  grid-row: 1 / span 99;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--navbar-height) + 20px);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-grey);
 }
 
-.resume-section h2 {
-  font-size: var(--text-xl);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-  margin-bottom: var(--space-lg);
+.resume-section > :not(h2) {
+  grid-column: 2;
 }
 
-/* Resume entry (experience, education) */
+/* --- Entry --- */
+/* at most about 75 characters of 17px reading text */
 .resume-entry {
-  margin-bottom: var(--space-xl);
+  max-width: 590px;
 }
 
-.resume-entry:last-child {
-  margin-bottom: 0;
-}
-
-.resume-entry__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-sm);
+.resume-entry + .resume-entry {
+  margin-top: 34px;
 }
 
 .resume-entry__title-row {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  gap: 8px 14px;
 }
 
 .resume-entry__game-title {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: 2px;
+  font-size: 34px;
+  line-height: 0.95;
 }
 
+/* Play and watch links: small blocks that fill like the nav */
 .resume-entry__links {
   display: flex;
-  align-items: center;
-  gap: var(--space-xs);
+  gap: 8px;
 }
 
-.resume-entry__link {
+.resume-entry__link.block {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  transition: all var(--transition-fast);
+  padding: 5px;
 }
 
 .resume-entry__link svg {
   width: 18px;
   height: 18px;
-  fill: #ddd;
-  transition: fill var(--transition-fast);
-}
-
-.resume-entry__link:hover svg {
-  fill: var(--color-accent);
-}
-
-
-.resume-entry__title,
-.resume-entry__org,
-.resume-entry__date {
-  margin: 0;
+  fill: currentColor;
 }
 
 .resume-entry__title {
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--color-text-primary);
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-fg);
 }
 
 .resume-entry__org {
-  font-size: var(--text-base);
-  color: var(--color-text-secondary);
+  margin: 2px 0 0;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--color-fg);
 }
 
 .resume-entry__date {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  margin: 4px 0 0;
+  font-size: 15px;
+  line-height: 1.25;
+  color: var(--color-grey);
+}
+
+/* Work and education entries read like project entries: title, place, then
+   the dates on their own line */
+.resume-entry__header > div > .resume-entry__title:first-child {
+  margin-top: 0;
+}
+
+/* Awards carry the same gold flag as the projects page */
+.resume-award {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 6px 12px;
+  background-color: var(--ps-gold);
+  font-family: var(--font-pixel);
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000;
 }
 
 .resume-entry__description {
-  margin-top: var(--space-sm);
+  margin-top: 12px;
 }
 
 .resume-entry__description li {
   position: relative;
-  padding-left: var(--space-lg);
-  margin-bottom: var(--space-sm);
-  color: var(--color-text-secondary);
-  font-size: var(--text-sm);
-  line-height: 1.6;
+  padding-left: 20px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-fg);
 }
 
+.resume-entry__description li + li {
+  margin-top: 8px;
+}
+
+/* square bullet, in the world's flat-rectangle grammar */
 .resume-entry__description li::before {
-  content: '—';
+  content: '';
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  top: 0.62em;
+  /* drawn as a border so it survives printing, which drops backgrounds */
+  border: 3px solid var(--color-grey);
 }
 
-/* Skills section */
-.resume-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.resume-skill {
-  padding: var(--space-xs) var(--space-md);
-  background-color: var(--color-bg-tertiary);
-  border: 1px solid var(--color-border);
-  border-radius: 100px;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-}
-
-/* Skills list (category rows) */
+/* --- Skills --- */
 .resume-skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
+  max-width: 590px;
 }
 
 .resume-skills-row {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 2px 20px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.resume-skills-row + .resume-skills-row {
+  margin-top: 12px;
 }
 
 .resume-skills-row strong {
-  color: var(--color-text-primary);
-  margin-right: var(--space-sm);
+  font-weight: 700;
+  color: var(--color-fg);
 }
 
-@media (min-width: 768px) {
-  .resume-entry__date {
-    text-align: left;
+.resume-skills-row span {
+  color: var(--color-fg);
+}
+
+/* The pixel face runs small for its size; lift reading text when it is chosen */
+html[data-body-font="pixel"] .resume-entry__description li,
+html[data-body-font="pixel"] .resume-skills-row,
+html[data-body-font="pixel"] .resume-entry__org {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+html[data-body-font="pixel"] .resume-entry__title {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+html[data-body-font="pixel"] .resume-entry__date {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* --- Narrow screens: section names stack above their entries --- */
+@media (max-width: 899px) {
+  .resume-header h1 {
+    font-size: 40px;
+  }
+
+  .resume-section {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 22px 0 26px;
+  }
+
+  .resume-section > h2 {
+    grid-row: auto;
+    position: static;
+    margin-bottom: 18px;
+  }
+
+  .resume-section > :not(h2) {
+    grid-column: 1;
+  }
+
+  .resume-entry__game-title {
+    font-size: 30px;
+  }
+
+  /* larger tap targets for the play and watch links */
+  .resume-entry__links {
+    gap: 10px;
+  }
+
+  .resume-entry__link.block {
+    padding: 9px;
+  }
+
+  .resume-skills-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Print: a clean black-on-white page --- */
+@media print {
+  .navbar,
+  .footer,
+  .resume-download,
+  .resume-entry__links {
+    display: none;
+  }
+
+  .world,
+  .resume-header,
+  .resume-content {
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  .resume-header h1,
+  .resume-entry__game-title {
+    color: #000;
+  }
+
+  .resume-entry__description li::before {
+    border-color: #000;
+  }
+
+  .resume-section > h2 {
+    position: static;
+    color: #000;
+  }
+
+  .resume-entry__title,
+  .resume-entry__org,
+  .resume-entry__date,
+  .resume-entry__description li,
+  .resume-skills-row strong,
+  .resume-skills-row span {
+    color: #000;
   }
 }

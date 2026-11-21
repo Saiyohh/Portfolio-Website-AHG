@@ -3,181 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Game and level design projects by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Game and level design projects by Alexander H Garcia: studio and team work he led, and solo level tests.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>Projects — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-card.css">
+  <link rel="stylesheet" href="../css/projects.css">
   <link rel="stylesheet" href="../css/footer.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/filter.js" defer></script>
-  <script src="../js/lazy-load.js" defer></script>
   <script src="../js/thumbnail-cycle.js" defer></script>
   <script src="../js/thumbnail-hover.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-projects">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <section class="section">
-        <div class="container">
-          <div class="projects-header">
-            <h1>Projects</h1>
-            <p>Level design work across Unreal Engine, Unity, and more</p>
-          </div>
+      <section class="projects">
+        <div class="projects__top">
+          <h1 class="projects__title">Projects</h1>
+          <h2 class="tier-heading">Studio &amp; team work</h2>
+        </div>
 
-          <!-- Filter tags -->
-          <div class="filter-tags">
-            <button class="filter-tag filter-tag--active" data-filter="all">All</button>
-            <button class="filter-tag" data-filter="team">Team</button>
-            <button class="filter-tag" data-filter="solo">Solo</button>
-          </div>
+        <div class="strips">
 
-          <!-- Project grid -->
-          <div class="project-grid">
-
-            <!-- KillCode: 404 -->
-            <a href="./killcode-404.html" class="project-card" data-tags="unity,team">
-              <div class="project-card__thumbnail">
-                <img class="project-card__static" src="../assets/images/projects/killcode-404/kc404-hero.png" alt="KillCode: 404" loading="lazy">
-                <img class="project-card__gif" data-gif="../assets/images/projects/killcode-404/kcc404-thumbnail.gif" alt="KillCode: 404 gameplay showing level design" loading="lazy">
-                <div class="project-card__logo-overlay" style="--logo-inset: 0%; --logo-shadow: drop-shadow(0 4px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 20px rgba(0,0,0,0.7))">
-                  <img src="../assets/images/projects/killcode-404/kc404-logo.png" alt="KillCode: 404">
-                </div>
-                <div class="project-card__engine">
-                  <img src="../assets/icons/unity.png" alt="">
-                  <span>Unity 6</span>
-                </div>
+            <a href="./killcode-404.html" class="strip project-card is-selected">
+              <div class="strip__media">
+                <img class="strip__still" src="../assets/images/projects/killcode-404/kc404-hero.jpg" alt="KillCode: 404" loading="lazy">
+                <video class="strip__clip project-card__gif" data-src="../assets/images/projects/killcode-404/gp-showcase-1.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+                <div class="strip__logo" style="--logo-inset: 4%"><img src="../assets/images/projects/killcode-404/kc404-logo.png" alt=""></div>
               </div>
-              <div class="project-card__info">
-                <h2 class="project-card__title">KillCode: 404</h2>
-                <p class="project-card__subtitle">Lead Designer @ Studio 300</p>
-                <div class="project-card__genres">
-                  <span class="genre-tag">FPS</span>
-                  <span class="genre-tag">Roguelite</span>
-                  <span class="genre-tag">Cyberspace</span>
-                </div>
+              <div class="strip__facts">
+                <h3 class="strip__title">KillCode: 404</h3>
+                <p class="strip__role"><span>Lead Designer @&nbsp;Studio&nbsp;300</span> <span>Team of 13</span></p>
+                <p class="strip__award">Best in Show &middot; Overall Design</p>
+                <ul class="tags"><li class="tags__key tags__key--unity">Unity 6</li><li>FPS</li><li>Roguelite</li><li>Cyberspace</li></ul>
+              </div>
+              <span class="strip__open block block--tri">Open</span>
+            </a>
+
+            <a href="./devils-gambit.html" class="strip project-card">
+              <div class="strip__media">
+                <img class="strip__still" src="../assets/images/projects/devils-gambit/dv-hero.jpg" alt="Devil's Gambit" loading="lazy">
+                <video class="strip__clip project-card__gif" data-src="../assets/images/projects/devils-gambit/dv-thumbnail.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+                <div class="strip__logo" style="--logo-inset: 8%"><img src="../assets/images/projects/devils-gambit/dv-logo.png" alt=""></div>
+              </div>
+              <div class="strip__facts">
+                <h3 class="strip__title">Devil's Gambit</h3>
+                <p class="strip__role"><span>Lead Designer @&nbsp;Studio&nbsp;300</span> <span>Team of 5</span></p>
+                <p class="strip__award">Spring Show 2024 Finalist</p>
+                <ul class="tags"><li class="tags__key tags__key--unity">Unity 5</li><li>Action Platformer</li><li>Tile-Based Levels</li><li>Escape from Hell</li></ul>
+              </div>
+              <span class="strip__open block block--tri">Open</span>
+            </a>
+
+            <a href="https://studio300games.com/pages/games/arcaneinterns.html" class="strip project-card" target="_blank" rel="noopener">
+              <div class="strip__media">
+                <img class="strip__still" src="../assets/images/projects/arcane-interns/ai-hero.jpg" alt="Arcane Interns" loading="lazy">
+                <div class="strip__logo" style="--logo-inset: 6%"><img src="../assets/images/projects/arcane-interns/ai-logo.png" alt=""></div>
+              </div>
+              <div class="strip__facts">
+                <h3 class="strip__title">Arcane Interns</h3>
+                <p class="strip__role"><span>Game Design Director @&nbsp;Studio&nbsp;300</span> <span>Team of 13</span></p>
+                <ul class="tags"><li class="tags__key tags__key--unity">Unity 6</li><li class="tags__key">In development</li><li>Co-op, 1 to 4 players</li><li>Roguelike</li><li>Dungeon Crawler</li></ul>
+              </div>
+              <span class="strip__open block block--tri">Studio page</span>
+            </a>
+
+            <a href="./under-construction.html#pact-tactics" class="strip strip--pending">
+              <div class="strip__media strip__media--pending">Footage to come</div>
+              <div class="strip__facts">
+                <h3 class="strip__title">Pact Tactics</h3>
+                <p class="strip__role"><span>Hackathon project</span></p>
+                <ul class="tags"><li>Role, team and tags to come</li></ul>
+              </div>
+              <span class="strip__note">Under construction</span>
+            </a>
+
+            <a href="./under-construction.html#cosmic-tails" class="strip strip--pending">
+              <div class="strip__media strip__media--pending">Footage to come</div>
+              <div class="strip__facts">
+                <h3 class="strip__title">Cosmic Tails</h3>
+                <p class="strip__role"><span>AAU Game Studio</span> <span>In development</span></p>
+                <ul class="tags"><li>Role, team and tags to come</li></ul>
+              </div>
+              <span class="strip__note">Under construction</span>
+            </a>
+        </div>
+
+        <h2 class="tier-heading tier-heading--solo">Solo level tests</h2>
+
+        <div class="solo-row">
+
+            <a href="./trials-of-aerlynn.html" class="solo project-card">
+              <div class="strip__media">
+                <img class="strip__still" src="../assets/images/projects/trials-of-aerlynn/ttoa-hero.jpg" alt="Trials of Aerlynn" loading="lazy">
+                <video class="strip__clip project-card__gif" data-src="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+                <div class="strip__logo" style="--logo-inset: 10%"><img src="../assets/images/projects/trials-of-aerlynn/ttoa-logo.png" alt=""></div>
+              </div>
+              <div class="solo__facts">
+                <h3 class="solo__title">Trials of Aerlynn</h3>
+                <p class="solo__role">Level Designer, solo project</p>
+                <ul class="tags"><li class="tags__key tags__key--unreal">UE5.4</li><li>Mini-Metroidvania</li><li>Pixel Perfect</li><li>Test of Strength</li></ul>
               </div>
             </a>
 
-            <!-- Devil's Gambit -->
-            <a href="./devils-gambit.html" class="project-card" data-tags="unity,team">
-              <div class="project-card__thumbnail">
-                <img class="project-card__static" src="../assets/images/projects/devils-gambit/dv-hero.png" alt="Devil's Gambit" loading="lazy">
-                <img class="project-card__gif" data-gif="../assets/images/projects/devils-gambit/dv-thumbnail.gif" alt="Devil's Gambit gameplay showing level design" loading="lazy">
-                <div class="project-card__logo-overlay" style="--logo-inset: 5%; --logo-shadow: drop-shadow(0 4px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 20px rgba(0,0,0,0.7))">
-                  <img src="../assets/images/projects/devils-gambit/dv-logo.png" alt="Devil's Gambit">
-                </div>
-                <div class="project-card__engine">
-                  <img src="../assets/icons/unity.png" alt="">
-                  <span>Unity 5</span>
-                </div>
+            <a href="./planet-glasidea.html" class="solo project-card">
+              <div class="strip__media">
+                <img class="strip__still" src="../assets/images/projects/planet-glasidea/glasidea-hero.jpg" alt="Planet Glasidea" loading="lazy">
+                <video class="strip__clip project-card__gif" data-src="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
               </div>
-              <div class="project-card__info">
-                <h2 class="project-card__title">Devil's Gambit</h2>
-                <p class="project-card__subtitle">Lead Designer @ Studio 300</p>
-                <div class="project-card__genres">
-                  <span class="genre-tag">Action Platformer</span>
-                  <span class="genre-tag">Tile-Based Levels</span>
-                  <span class="genre-tag">Escape from Hell</span>
-                </div>
+              <div class="solo__facts">
+                <h3 class="solo__title">Planet Glasidea</h3>
+                <p class="solo__role">Level Designer, solo project</p>
+                <ul class="tags"><li class="tags__key tags__key--unreal">UE5.2</li><li>Level Test</li><li>Destiny 2</li><li>Combat-former</li></ul>
               </div>
             </a>
 
-            <!-- Trials of Aerlynn -->
-            <a href="./trials-of-aerlynn.html" class="project-card" data-tags="unreal,solo">
-              <div class="project-card__thumbnail">
-                <img class="project-card__static" src="../assets/images/projects/trials-of-aerlynn/ttoa-hero.png" alt="Trials of Aerlynn" loading="lazy">
-                <img class="project-card__gif" data-gif="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.gif" alt="Trials of Aerlynn gameplay showing level design" loading="lazy">
-                <div class="project-card__logo-overlay" style="--logo-inset: 10%; --logo-shadow: drop-shadow(0 4px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 20px rgba(0,0,0,0.7))">
-                  <img src="../assets/images/projects/trials-of-aerlynn/ttoa-logo.png" alt="Trials of Aerlynn" style="max-width: 200%">
-                </div>
-                <div class="project-card__engine">
-                  <img src="../assets/icons/unreal.png" alt="">
-                  <span>UE5.4</span>
-                </div>
+            <a href="./cloudtop-kingdom.html" class="solo project-card">
+              <div class="strip__media" data-slideshow-duration="60s" data-slideshow='["../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.jpg","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.jpg"]'>
+                <img class="strip__still" src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg" alt="Cloudtop Kingdom blockout screenshots" loading="lazy">
               </div>
-              <div class="project-card__info">
-                <h2 class="project-card__title">Trials of Aerlynn</h2>
-                <p class="project-card__subtitle">Level Designer // Solo Project</p>
-                <div class="project-card__genres">
-                  <span class="genre-tag">Mini-Metroidvania</span>
-                  <span class="genre-tag">Pixel Perfect</span>
-                  <span class="genre-tag">Test of Strength</span>
-                </div>
+              <div class="solo__facts">
+                <h3 class="solo__title">Cloudtop Kingdom</h3>
+                <p class="solo__role">Level Designer, solo project</p>
+                <ul class="tags"><li class="tags__key tags__key--unreal">UE5.2</li><li>Level Test</li><li>Mario Odyssey</li><li>Blockout</li></ul>
               </div>
             </a>
-
-            <!-- Planet Glasidea -->
-            <a href="./planet-glasidea.html" class="project-card" data-tags="unreal,solo">
-              <div class="project-card__thumbnail">
-                <img class="project-card__static" src="../assets/images/projects/planet-glasidea/glasidea-hero.jpg" alt="Planet Glasidea" loading="lazy">
-                <img class="project-card__gif" data-gif="../assets/images/projects/planet-glasidea/glasidea-thumbnail-a.gif" alt="Planet Glasidea gameplay showing level design" loading="lazy">
-                <div class="project-card__logo-overlay">
-                  <span>Planet Glasidea</span>
-                </div>
-                <div class="project-card__engine">
-                  <img src="../assets/icons/unreal.png" alt="">
-                  <span>UE5.2</span>
-                </div>
-              </div>
-              <div class="project-card__info">
-                <h2 class="project-card__title">Planet Glasidea</h2>
-                <p class="project-card__subtitle">Level Designer // Solo Project</p>
-                <div class="project-card__genres">
-                  <span class="genre-tag">Level Test</span>
-                  <span class="genre-tag">Destiny 2</span>
-                  <span class="genre-tag">Combat-former</span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Cloudtop Kingdom -->
-            <a href="./cloudtop-kingdom.html" class="project-card" data-tags="unreal,solo">
-              <div class="project-card__thumbnail">
-                <img class="project-card__static" src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png" alt="Cloudtop Kingdom" loading="lazy">
-                <img class="project-card__gif"
-                     data-gif="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png"
-                     data-slideshow-duration="60s"
-                     data-slideshow='["../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.png","../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.png"]'
-                     alt="Cloudtop Kingdom gameplay showing level design" loading="lazy">
-                <div class="project-card__logo-overlay">
-                  <span>Cloudtop Kingdom</span>
-                </div>
-                <div class="project-card__engine">
-                  <img src="../assets/icons/unreal.png" alt="">
-                  <span>UE5.2</span>
-                </div>
-              </div>
-              <div class="project-card__info">
-                <h2 class="project-card__title">Cloudtop Kingdom</h2>
-                <p class="project-card__subtitle">Level Designer // Solo Project</p>
-                <div class="project-card__genres">
-                  <span class="genre-tag">Level Test</span>
-                  <span class="genre-tag">Mario Odyssey</span>
-                  <span class="genre-tag">Blockout</span>
-                </div>
-              </div>
-            </a>
-
-          </div>
         </div>
       </section>
     </main>

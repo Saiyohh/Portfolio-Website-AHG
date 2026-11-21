@@ -5,4 +5,7 @@ Thumbs.db
 .vscode/
 .idea/
 .claude/
+.impeccable/
+PRODUCT.md
+DESIGN.md
 ref/

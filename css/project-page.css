@@ -1,0 +1,546 @@
+/* === Project page ===
+   The strip from the projects list, opened up: the work plays at the left, the
+   facts and what I did sit beside it, and the process follows underneath at
+   full width. Loads after projects.css, whose role line, award flag and tags
+   it shares. */
+.pp {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.8vw, 40px) 44px;
+}
+
+/* Everything that is read sits on flat void: the top block is one void field
+   and the sections below it one void column. The scanlines run in the empty
+   space either side, never under text. */
+.pp__panel {
+  margin: 0 -28px;
+  padding: 0 28px 28px;
+}
+
+/* --- Top: viewer beside facts --- */
+.pp-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(340px, 1fr);
+  gap: 36px;
+  align-items: start;
+  margin: 0 -28px;
+  padding: 20px 28px 40px;
+  background-color: var(--color-void);
+}
+
+/* Viewer: one stage, and thumbnails that swap what it shows */
+.viewer__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 2px solid var(--color-line);
+  background-color: var(--color-void);
+  overflow: hidden;
+}
+
+.viewer__stage video,
+.viewer__stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.viewer__thumbs {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.viewer__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 2px solid var(--color-line);
+  background-color: var(--color-void);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.viewer__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The thumbnail on the stage is outlined in white; the rest sit under a flat
+   dim that clears in the same steps a block fills. */
+.viewer__thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-dim);
+  transform-origin: top;
+  transition: transform var(--fill-time) var(--fill-steps);
+}
+
+.viewer__thumb[aria-pressed="true"] {
+  border-color: var(--color-fg);
+}
+
+.viewer__thumb[aria-pressed="true"]::after {
+  transform: scaleY(0);
+}
+
+.viewer__thumb:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .viewer__thumb:hover::after {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer__thumb::after {
+    transition: none;
+  }
+}
+
+/* Pause and Play for the clip, in the stage's corner */
+.viewer__pause.block {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 8px 14px;
+  background-color: var(--color-void);
+  cursor: pointer;
+}
+
+.viewer__stage [hidden] {
+  display: none;
+}
+
+/* Facts */
+.pp-facts {
+  min-width: 0;
+}
+
+.pp-title {
+  font-size: 64px;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.pp-facts .strip__role {
+  margin-top: 10px;
+}
+
+.pp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.pp-links .block {
+  padding: 12px 18px;
+}
+
+.pp-did {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 2px solid var(--color-line);
+}
+
+.pp-did h2,
+.pp-section > h2 {
+  font-size: 30px;
+  line-height: 1;
+  /* the itch.io red */
+  color: var(--ps-circle);
+}
+
+/* Square-bullet list, as on the resume */
+.pp-list {
+  margin-top: 12px;
+}
+
+.pp-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-fg);
+}
+
+.pp-list li + li {
+  margin-top: 8px;
+}
+
+.pp-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  border: 3px solid var(--color-grey);
+}
+
+/* --- Sections: one centre column, the name above its content ---
+   Text, media, the divider above them and the previous / next row share one
+   900px column on the same centre line, so every edge lines up. The column's
+   void runs 28px past the text each side, to keep the scanlines off it. */
+.pp-section,
+.pp-nav {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 956px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--color-void);
+}
+
+/* the divider, as wide as the text */
+.pp-section::before,
+.pp-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  border-top: 2px solid var(--color-line);
+}
+
+.pp-section {
+  padding: 30px 28px 38px;
+}
+
+.pp-section > h2 {
+  margin-bottom: 14px;
+}
+
+.pp-section > p,
+.pp-section > .pp-list {
+  margin-bottom: 0;
+  /* a touch larger and looser, to carry the longer line */
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-fg);
+}
+
+.pp-section > p + p {
+  margin-top: 12px;
+}
+
+.pp-section > .pp-list {
+  margin-top: 0;
+}
+
+.pp-section > p + .pp-list,
+.pp-section > .pp-list + p {
+  margin-top: 14px;
+}
+
+.pp-list strong,
+.pp-credits strong {
+  font-weight: 700;
+  color: var(--color-fg);
+}
+
+/* Media inside a section runs the full width of the column */
+.pp-figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.pp-section > * + .pp-figure,
+.pp-section > * + .pp-stills,
+.pp-section > .pp-figure + p {
+  margin-top: 20px;
+}
+
+.pp-figure img,
+.pp-stills img {
+  display: block;
+  width: 100%;
+  border: 2px solid var(--color-line);
+}
+
+.pp-figure figcaption {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-grey);
+}
+
+/* images that open larger */
+.lightbox-trigger {
+  cursor: zoom-in;
+}
+
+.lightbox-trigger:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .lightbox-trigger:hover {
+    border-color: var(--color-fg);
+  }
+}
+
+/* Stills: two large, then three */
+.pp-stills {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pp-stills img {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.pp-stills img:nth-child(-n + 2) {
+  grid-column: span 3;
+}
+
+/* Credits: two columns of name and role */
+.pp-credits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 32px;
+}
+
+.pp-credits li {
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--color-fg);
+}
+
+.pp-credits strong {
+  display: block;
+  font-weight: 700;
+}
+
+.pp-credits span {
+  color: var(--color-grey);
+}
+
+/* --- Previous / next --- */
+.pp-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 26px 28px 28px;
+}
+
+.pp-nav .block {
+  padding: 12px 18px;
+}
+
+.pp-nav__next {
+  margin-left: auto;
+}
+
+/* --- Under construction: the page an unfinished project opens --- */
+.pp--notice {
+  max-width: 760px;
+  padding-top: clamp(24px, 8vh, 96px);
+}
+
+.pp--notice .pp__panel {
+  background-color: var(--color-void);
+  /* no bleed into the gutters, so the dashed frame stays whole on phones */
+  margin: 0;
+  padding: 32px clamp(16px, 4vw, 28px) 36px;
+  border: 2px dashed var(--color-line);
+}
+
+.pp-notice__flag {
+  margin-bottom: 10px;
+  font-family: var(--font-pixel);
+  font-size: 26px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+.pp-notice__text {
+  max-width: 46ch;
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-fg);
+}
+
+/* Words in the message that go where the blocks below go, in their colours */
+.pp-notice__link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.pp-notice__link--work,
+.pp-notice__link--work:hover {
+  color: var(--ps-triangle);
+}
+
+.pp-notice__link--resume,
+.pp-notice__link--resume:hover {
+  color: var(--ps-square);
+}
+
+.pp-notice__link:hover {
+  text-decoration-thickness: 4px;
+}
+
+.pp-notice__link:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+.pp--notice .pp-links {
+  margin-top: 24px;
+}
+
+/* The pixel face runs small for its size; lift reading text when it is chosen */
+html[data-body-font="pixel"] .pp-notice__text {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+html[data-body-font="pixel"] .pp-list li,
+html[data-body-font="pixel"] .pp-section > p,
+html[data-body-font="pixel"] .pp-credits li {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+html[data-body-font="pixel"] .pp-figure figcaption {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* --- Short laptop screens: a smaller stage, so What I did clears the fold --- */
+@media (min-width: 900px) and (max-height: 720px) {
+  .pp-top {
+    grid-template-columns: minmax(0, 1.3fr) minmax(360px, 1fr);
+    gap: 32px;
+  }
+
+  .pp-title {
+    font-size: 52px;
+  }
+
+  .pp-facts .tags {
+    margin-top: 12px;
+  }
+
+  .pp-links {
+    margin-top: 14px;
+  }
+
+  .pp-links .block {
+    padding: 9px 16px;
+  }
+
+  .pp-did {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+
+  .pp-list li {
+    line-height: 1.45;
+  }
+
+  .pp-list li + li {
+    margin-top: 5px;
+  }
+}
+
+/* --- No room for scanlines beside the column: the whole panel goes void --- */
+@media (max-width: 1040px) {
+  .pp__panel {
+    background-color: var(--color-void);
+  }
+
+  .pp-section,
+  .pp-nav {
+    max-width: 900px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pp-section::before,
+  .pp-nav::before {
+    left: 0;
+    right: 0;
+  }
+}
+
+/* --- Narrower desktops --- */
+@media (max-width: 1199px) {
+  .pp-top {
+    grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+    gap: 28px;
+  }
+
+  .pp-title {
+    font-size: 52px;
+  }
+}
+
+/* --- Tablets and phones: one column, the work first --- */
+@media (max-width: 899px) {
+  .pp-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding-bottom: 30px;
+  }
+
+  .pp-title {
+    font-size: 44px;
+  }
+
+  .pp-section {
+    padding-top: 22px;
+    padding-bottom: 28px;
+  }
+
+  /* thumbnails stay in one row; past four across, the row scrolls sideways */
+  .viewer__thumbs {
+    /* 4.4 lets a fifth thumbnail peek in, so the row reads as scrollable */
+    --n: min(var(--cols, 3), 4.4);
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - (var(--n) - 1) * 10px) / var(--n));
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-grey) var(--color-void);
+  }
+
+  .pp-nav .block {
+    flex: 1 1 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 599px) {
+  .pp-stills img,
+  .pp-stills img:nth-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  /* a fifth still would sit alone at half width */
+  .pp-stills img:nth-child(odd):last-child {
+    grid-column: span 6;
+  }
+
+  .pp-credits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
