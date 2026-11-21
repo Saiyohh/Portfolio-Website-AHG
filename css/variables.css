@@ -10,9 +10,33 @@
   --color-border: #2a2a2a;
   --color-overlay: rgba(0, 0, 0, 0.85);
 
+  /* Redesign world: black field, face-button colours as flat rectangles.
+     Every --ps-* fill takes black text (all pass WCAG AA against black). */
+  --color-void: #000;
+  --color-fg: #f2f2f2;
+  --color-grey: #8d98a8;
+  --color-line: #3a4150;
+  --color-banner: #15171c;
+  --color-name-shadow: #1a1f2b;
+  --color-scanline: rgba(255, 255, 255, 0.13);
+  /* flat dim over a still, behind its logo */
+  --color-dim: rgba(0, 0, 0, 0.45);
+  --ps-square: #efa3e8;
+  --ps-circle: #e3567d;
+  --ps-triangle: #0ce79f;
+  --ps-cross: #4facfe;
+  /* the PlayStation logo's gold, for the Email link */
+  --ps-gold: #f3c202;
+
+  /* The one motion: a stepped bottom-up fill */
+  --fill-time: 140ms;
+  --fill-steps: steps(5, end);
+
   /* Typography */
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Share Tech Mono', ui-monospace, monospace;
+  --font-pixel: 'Jersey 15', ui-monospace, monospace;
+  --font-sans: 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif;
 
   /* Font sizes */
   --text-xs: 0.75rem;
@@ -53,4 +77,10 @@
   /* Shadows */
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Header toggle: PIXEL sets body text in the pixel face, PLAIN (default) in the sans. */
+html[data-body-font="pixel"] {
+  --font-primary: var(--font-pixel);
+  --font-sans: var(--font-pixel);
 }

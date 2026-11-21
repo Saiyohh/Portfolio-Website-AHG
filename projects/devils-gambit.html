@@ -3,135 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Devil's Gambit — Level design breakdown by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Devil's Gambit, a 2D dark-fantasy metroidvania by Studio 300. Game design and programming by Alexander H Garcia.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>Devil's Gambit — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-detail.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
-  <script src="../js/gallery-slider.js" defer></script>
-  <script src="../js/lightbox.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/toc.js" defer></script>
+  <script src="../js/project-viewer.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-project">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <!-- Project hero -->
-      <div class="project-hero">
-        <img src="../assets/images/projects/devils-gambit/dv-hero.jpg" alt="Devil's Gambit hero image">
-        <div class="project-hero__overlay">
-          <h1 class="project-hero__title">Devil's Gambit</h1>
-        </div>
-      </div>
+      <article class="pp">
+        <div class="pp__panel">
 
-      <!-- Metadata bar -->
-      <div class="project-meta">
-        <div class="project-meta__item">
-          <span class="project-meta__label">Engine</span>
-          <span class="project-meta__value">Unity</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Role</span>
-          <span class="project-meta__value">Lead Game Designer &amp; Programmer</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">5 members</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">59 days (Spring 2024)</span>
-        </div>
-      </div>
+          <!-- Top: the work beside the facts -->
+          <header class="pp-top">
+            <div class="viewer">
+              <div class="viewer__stage">
+                <video src="../assets/images/projects/devils-gambit/dv-thumbnail.mp4" poster="../assets/images/projects/devils-gambit/dv-thumbnail-poster.jpg" autoplay muted loop playsinline aria-label="Devil's Gambit gameplay"></video>
+                <img src="../assets/images/projects/devils-gambit/dv-hero.jpg" alt="Devil's Gambit key art" class="lightbox-trigger" hidden>
+                <button type="button" class="block viewer__pause" aria-pressed="false">Pause</button>
+              </div>
+              <div class="viewer__thumbs" style="--cols: 3">
+                <button type="button" class="viewer__thumb" aria-pressed="true" aria-label="Devil's Gambit gameplay" data-video="../assets/images/projects/devils-gambit/dv-thumbnail.mp4" data-poster="../assets/images/projects/devils-gambit/dv-thumbnail-poster.jpg"><img src="../assets/images/projects/devils-gambit/dv-thumbnail-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Devil's Gambit key art" data-image="../assets/images/projects/devils-gambit/dv-hero.jpg" data-alt="Devil's Gambit key art"><img src="../assets/images/projects/devils-gambit/dv-hero.jpg" alt=""></button>
+              </div>
+            </div>
+            <div class="pp-facts">
+              <h1 class="pp-title">Devil's Gambit</h1>
+              <p class="strip__role"><span>Lead Designer &amp; Programmer @&nbsp;Studio&nbsp;300</span> <span>Team of 5</span> <span>59 days, Spring&nbsp;2024</span></p>
+              <p class="strip__award">Spring Show 2024 Finalist</p>
+              <ul class="tags"><li class="tags__key tags__key--unity">Unity 5</li><li>Action Platformer</li><li>Tile-Based Levels</li><li>Escape from Hell</li></ul>
+              <div class="pp-links">
+                <a href="https://studio300.itch.io/devils-gambit-demo" target="_blank" rel="noopener" class="block block--cir is-filled">Play on itch.io</a>
+                <a href="https://www.youtube.com/watch?v=qBybB1-YU04" target="_blank" rel="noopener" class="block">Trailer</a>
+              </div>
+              <div class="pp-did">
+                <h2>What I did</h2>
+                <ul class="pp-list">
+                  <li>Defined the game's core identity: worldbuilding, player abilities, combat systems, and overall level flow.</li>
+                  <li>Programmed the player character controller and the boss encounter in C#.</li>
+                  <li>Wrote the dialogue and narrative cutscenes.</li>
+                  <li>Created promotional assets, including logos, character art direction, and marketing materials.</li>
+                </ul>
+              </div>
+            </div>
+          </header>
 
-      <!-- Content with TOC -->
-      <div class="project-layout">
-
-        <!-- Desktop TOC sidebar -->
-        <aside class="project-toc">
-          <nav class="project-toc__nav" aria-label="Table of contents">
-            <p class="project-toc__title">Contents</p>
-            <ul class="project-toc__list" id="toc-list">
-              <!-- Auto-populated by toc.js -->
+          <section class="pp-section">
+            <h2>The game</h2>
+            <p>Devil's Gambit is a 2D dark-fantasy Metroidvania that casts players as the Charlatan, a doomed gambler bound to a devilish patron. Players wield cursed playing cards and hellish magic to cheat fate, challenge Hell's hierarchy, and fight their way out of its decaying, layered depths.</p>
+            <p>It was developed as a vertical slice in Unity by a small team at Studio 300. The entire demo was concepted, designed, built, and polished in a 59-day production window.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Development</h2>
+            <p>Development moved fast with a tight scope. Early production focused on locking the core combat loop and movement feel, while the art team established the hand-drawn visual style in parallel.</p>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/devils-gambit/dv-schedule.jpg" alt="Whiteboard production calendar for Devil's Gambit, ending in a playtest week and a March 31st deadline" class="lightbox-trigger" loading="lazy">
+              <figcaption>The production calendar, ending in playtest week and the March 31st deadline. Select to enlarge.</figcaption>
+            </figure>
+          </section>
+          <section class="pp-section">
+            <h2>Combat and boss</h2>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/devils-gambit/dv-combat-sheet.png" alt="Combat sheet for the cane, showing the card throw, big slash and dash slash with their controller inputs" class="lightbox-trigger" loading="lazy">
+              <figcaption>Combat sheet for the cane: card throw, big slash and dash slash, with their inputs. Select to enlarge.</figcaption>
+            </figure>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/devils-gambit/dv-boss-whiteboard.jpg" alt="Whiteboard plan of the boss encounter, with a flow of its states and sketches of its attacks" class="lightbox-trigger" loading="lazy">
+              <figcaption>Whiteboard plan for the boss encounter: its states and attacks, with the second phase marked in red. Select to enlarge.</figcaption>
+            </figure>
+          </section>
+          <section class="pp-section">
+            <h2>Level design</h2>
+            <p>Level design went through rapid iteration, from paper sketches to blockouts to final tilesets, with the boss encounter serving as the centerpiece of the vertical slice.</p>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/devils-gambit/dv-sketch-level.png" alt="Storyboard panels above a sketched side view of a Devil's Gambit level" class="lightbox-trigger" loading="lazy">
+              <figcaption>Storyboard panels and a level sketch. Select to enlarge.</figcaption>
+            </figure>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/devils-gambit/dv-blockout-outside.png" alt="Greybox blockout of the outside area, with enemy and pickup positions marked" class="lightbox-trigger" loading="lazy">
+              <figcaption>Blockout of the outside area. Select to enlarge.</figcaption>
+            </figure>
+            <div class="pp-stills">
+              <img src="../assets/images/projects/devils-gambit/dv-sketch-whiteboard.jpg" alt="Whiteboard sketch of a level layout" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/devils-gambit/dv-blockout-sinners-lair.png" alt="Sinner's Lair blockout in the tile editor" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/devils-gambit/dv-still-1.png" alt="Devil's Gambit: the Charlatan and a devil on a ledge above the ruined city" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/devils-gambit/dv-still-2.png" alt="Devil's Gambit: the boss arena" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/devils-gambit/dv-still-3.png" alt="Devil's Gambit: combat in the stone halls" class="lightbox-trigger" loading="lazy">
+            </div>
+          </section>
+          <section class="pp-section">
+            <h2>Results and takeaways</h2>
+            <p>Devil's Gambit was selected as a finalist at the Academy of Art University 2024 Spring Show. The tight timeline taught the team how to scope aggressively and prioritize the features that would make the strongest impression in a vertical slice.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Team</h2>
+            <ul class="pp-credits">
+              <li><strong>Dominik Rangel</strong><span>Art Director, Founder</span></li>
+              <li><strong>Dominic Sanchez</strong><span>Programmer, Tech Artist, Founder</span></li>
+              <li><strong>Areej Haq</strong><span>2D Prop &amp; Environment Artist</span></li>
+              <li><strong>Manel Boubeker</strong><span>Player Sprite &amp; UI Artist</span></li>
+              <li><strong>Hugh Gower</strong><span>Player Animator</span></li>
             </ul>
-          </nav>
-        </aside>
+          </section>
 
-        <!-- Main content -->
-        <article class="project-content" id="project-content">
-
-          <!-- Mobile TOC (collapsible) -->
-          <div class="project-toc-mobile">
-            <button class="project-toc-mobile__toggle" aria-expanded="false">
-              Table of Contents
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <ul class="project-toc-mobile__list" id="toc-list-mobile">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </div>
-
-          <h2 id="overview">Overview</h2>
-          <p>Devil's Gambit is a 2D dark-fantasy Metroidvania that casts players as the Charlatan, a doomed gambler bound to a devilish patron. Players wield cursed playing cards and hellish magic to cheat fate, challenge Hell's hierarchy, and fight their way out of its decaying, layered depths.</p>
-          <p>This project was developed as a vertical slice in Unity by a small team at Studio 300 and submitted to the Academy of Art University 2024 Spring Show, where it was selected as a finalist.</p>
-
-          <video src="../assets/images/projects/devils-gambit/dv-thumbnail.mp4" poster="../assets/images/projects/devils-gambit/dv-thumbnail-poster.jpg" autoplay muted loop playsinline aria-label="Devil's Gambit gameplay"></video>
-
-          <h2 id="design-role">My Design Role</h2>
-          <p>As lead game designer, I defined the game's core identity — worldbuilding, player abilities, combat systems, and overall level flow. I programmed the player character controller and boss encounter in C#, wrote dialogue and narrative cutscenes, and created promotional assets including logos, character art direction, and marketing materials.</p>
-          <p>The entire demo was concepted, designed, built, and polished in a 59-day production window.</p>
-
-          <h2 id="development">Development</h2>
-          <p>Development moved fast with a tight scope. Early production focused on locking the core combat loop and movement feel, while the art team established the hand-drawn visual style in parallel. Level design went through rapid iteration — from paper sketches to blockouts to final tilesets — with the boss encounter serving as the centerpiece of the vertical slice.</p>
-
-          <h2 id="results">Results &amp; Takeaways</h2>
-          <p>Devil's Gambit was selected as a finalist at the 2024 Spring Show. The tight production timeline taught the team how to scope aggressively and prioritize the features that would make the strongest impression in a vertical slice format.</p>
-
-          <h2 id="team">Team</h2>
-          <ul>
-            <li><strong>Dominik Rangel</strong> — Art Director, Founder</li>
-            <li><strong>Dominic Sanchez</strong> — Programmer, Tech Artist, Founder</li>
-            <li><strong>Areej Haq</strong> — 2D Prop &amp; Environment Artist</li>
-            <li><strong>Manel Boubeker</strong> — Player Sprite &amp; UI Artist</li>
-            <li><strong>Hugh Gower</strong> — Player Animator</li>
-          </ul>
-
-          <!-- Previous / Next nav -->
-          <nav class="project-nav" aria-label="Project navigation">
-            <a href="./killcode-404.html" class="project-nav__link project-nav__link--prev">
-              <span class="project-nav__label">Previous Project</span>
-              <span class="project-nav__title">KillCode: 404</span>
-            </a>
-            <a href="./trials-of-aerlynn.html" class="project-nav__link project-nav__link--next">
-              <span class="project-nav__label">Next Project</span>
-              <span class="project-nav__title">Trials of Aerlynn</span>
-            </a>
+          <!-- Previous / next -->
+          <nav class="pp-nav" aria-label="More projects">
+            <a href="./killcode-404.html" class="block">Previous: KillCode: 404</a>
+            <a href="./index.html" class="block block--tri">All projects</a>
+            <a href="./trials-of-aerlynn.html" class="block pp-nav__next">Next: Trials of Aerlynn</a>
           </nav>
 
-        </article>
-      </div>
+        </div>
+      </article>
     </main>
 
     <!-- ========== FOOTER ========== -->

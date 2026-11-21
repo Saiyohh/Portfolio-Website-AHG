@@ -3,143 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Trials of Aerlynn — Level design breakdown by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Trials of Aerlynn, a solo 2D metroidvania built in Unreal Engine 5.4 by Alexander H Garcia.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>Trials of Aerlynn — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-detail.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
-  <script src="../js/gallery-slider.js" defer></script>
-  <script src="../js/lightbox.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/toc.js" defer></script>
+  <script src="../js/project-viewer.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-project">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <!-- Project hero -->
-      <div class="project-hero">
-        <img src="../assets/images/projects/trials-of-aerlynn/ttoa-hero.jpg" alt="Trials of Aerlynn hero image">
-        <div class="project-hero__overlay">
-          <h1 class="project-hero__title">Trials of Aerlynn</h1>
-        </div>
-      </div>
+      <article class="pp">
+        <div class="pp__panel">
 
-      <!-- Metadata bar -->
-      <div class="project-meta">
-        <div class="project-meta__item">
-          <span class="project-meta__label">Engine</span>
-          <span class="project-meta__value">Unreal Engine 5.4</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Role</span>
-          <span class="project-meta__value">Solo Developer</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">Solo</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">2024</span>
-        </div>
-      </div>
+          <!-- Top: the work beside the facts -->
+          <header class="pp-top">
+            <div class="viewer">
+              <div class="viewer__stage">
+                <video src="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.mp4" poster="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail-poster.jpg" autoplay muted loop playsinline aria-label="Trials of Aerlynn gameplay"></video>
+                <img src="../assets/images/projects/trials-of-aerlynn/ttoa-hero.jpg" alt="Trials of Aerlynn key art" class="lightbox-trigger" hidden>
+                <button type="button" class="block viewer__pause" aria-pressed="false">Pause</button>
+              </div>
+              <div class="viewer__thumbs" style="--cols: 3">
+                <button type="button" class="viewer__thumb" aria-pressed="true" aria-label="Trials of Aerlynn gameplay" data-video="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.mp4" data-poster="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail-poster.jpg"><img src="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Trials of Aerlynn key art" data-image="../assets/images/projects/trials-of-aerlynn/ttoa-hero.jpg" data-alt="Trials of Aerlynn key art"><img src="../assets/images/projects/trials-of-aerlynn/ttoa-hero.jpg" alt=""></button>
+              </div>
+            </div>
+            <div class="pp-facts">
+              <h1 class="pp-title">Trials of Aerlynn</h1>
+              <p class="strip__role"><span>Solo developer</span> <span>2024</span></p>
+              <ul class="tags"><li class="tags__key tags__key--unreal">UE5.4</li><li>Mini-Metroidvania</li><li>Pixel Perfect</li><li>Test of Strength</li></ul>
+              <div class="pp-links">
+                <a href="https://saiyoh.itch.io/trials-of-aerlynn" target="_blank" rel="noopener" class="block block--cir is-filled">Play on itch.io</a>
+              </div>
+              <div class="pp-did">
+                <h2>What I did</h2>
+                <ul class="pp-list">
+                  <li>Rebuilt the character controller from scratch in UE5 Blueprints, with six abilities.</li>
+                  <li>Designed six regions around ability-gated exploration, map first and mechanics second.</li>
+                  <li>Hand-placed every tile in Unreal Engine.</li>
+                  <li>Built an introductory zone that teaches each ability in isolation before combining them.</li>
+                </ul>
+              </div>
+            </div>
+          </header>
 
-      <!-- Content with TOC -->
-      <div class="project-layout">
-
-        <!-- Desktop TOC sidebar -->
-        <aside class="project-toc">
-          <nav class="project-toc__nav" aria-label="Table of contents">
-            <p class="project-toc__title">Contents</p>
-            <ul class="project-toc__list" id="toc-list">
-              <!-- Auto-populated by toc.js -->
+          <section class="pp-section">
+            <h2>The game</h2>
+            <p>Trials of Aerlynn is a 2D Metroidvania platformer built in Unreal Engine 5.4, created as a solo exploration of genre fundamentals and of responsive, satisfying movement. It has six distinct regions and a progression system centered on ability-gated exploration.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Character controller</h2>
+            <p>The project began with rebuilding the character controller in UE5 Blueprints. The original template had inconsistent mechanics, particularly a slide that relied on position vectors rather than physics interactions. The rebuilt controller supports six core abilities:</p>
+            <ul class="pp-list">
+              <li><strong>Super Tome:</strong> ranged spell attack</li>
+              <li><strong>Stone Breaker:</strong> downward slam attack</li>
+              <li><strong>Sliding Boots:</strong> ground movement boost</li>
+              <li><strong>Sticky Gloves:</strong> wall cling and climbing</li>
+              <li><strong>Seraph Amulet:</strong> double jump</li>
+              <li><strong>Slipstream Armor:</strong> air dash</li>
             </ul>
-          </nav>
-        </aside>
-
-        <!-- Main content -->
-        <article class="project-content" id="project-content">
-
-          <!-- Mobile TOC (collapsible) -->
-          <div class="project-toc-mobile">
-            <button class="project-toc-mobile__toggle" aria-expanded="false">
-              Table of Contents
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <ul class="project-toc-mobile__list" id="toc-list-mobile">
-              <!-- Auto-populated by toc.js -->
+          </section>
+          <section class="pp-section">
+            <h2>Level design</h2>
+            <p>The design philosophy was &ldquo;World First, Systems Second&rdquo;: map design came before mechanics, drawing inspiration from Hollow Knight. The original concept had three abilities and was titled &ldquo;Caves of Chicago,&rdquo; treating Chicago as a medieval fantasy realm. It grew into the current six regions.</p>
+            <p>Key systems include Pyres (collectible braziers that unlock doors), breakable walls and secret paths, a hazard respawn system, and Azure Beads that recharge the air dash.</p>
+            <p>Every tile was hand-placed, as Unreal lacks the automated tile-adaptation systems found in other engines. That constraint forced deliberate decisions about surface placement and movement readability.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Takeaways</h2>
+            <p>Trials of Aerlynn is free on itch.io. Building a full Metroidvania solo in Unreal, an engine not typically used for 2D, proved that the fundamentals of level design transfer across any toolset. The hand-placement constraint became a strength: every tile is an intentional design choice.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Asset credits</h2>
+            <ul class="pp-credits">
+              <li><strong>Character</strong><span>Woman Warrior by Dreamir</span></li>
+              <li><strong>Tilesets</strong><span>Fantasy Winter, Ancient Temple, Fantasy Caves, Lava Caves by aamatniekss</span></li>
+              <li><strong>Audio</strong><span>Joel Francis Buford, Joel Steudler, DanielTelesOST</span></li>
+              <li><strong>VFX</strong><span>Smoke N Dust 2, Holy VFX by pimen</span></li>
+              <li><strong>UI</strong><span>Shikashi, Kenney, ElvGames</span></li>
             </ul>
-          </div>
+          </section>
 
-          <h2 id="overview">Overview</h2>
-          <p>Trials of Aerlynn is a 2D Metroidvania platformer built in Unreal Engine 5.4, created as a solo exploration of genre fundamentals and the design of responsive, satisfying movement mechanics. The game features six distinct regions and a progression system centered around ability-gated exploration.</p>
-
-          <video src="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail.mp4" poster="../assets/images/projects/trials-of-aerlynn/ttoa-thumbnail-poster.jpg" autoplay muted loop playsinline aria-label="Trials of Aerlynn gameplay"></video>
-
-          <h2 id="character-controller">Character Controller</h2>
-          <p>The project began with rebuilding the character controller from scratch using UE5 Blueprints. The original template had inconsistent mechanics — particularly with sliding that relied on position vectors rather than physics interactions. The rebuilt controller supports six core abilities:</p>
-          <ul>
-            <li><strong>Super Tome</strong> — Ranged spell attack</li>
-            <li><strong>Stone Breaker</strong> — Downward slam attack</li>
-            <li><strong>Sliding Boots</strong> — Ground movement boost</li>
-            <li><strong>Sticky Gloves</strong> — Wall cling and climbing</li>
-            <li><strong>Seraph Amulet</strong> — Double jump</li>
-            <li><strong>Slipstream Armor</strong> — Air dash mechanic</li>
-          </ul>
-
-          <h2 id="level-design">Level Design</h2>
-          <p>The design philosophy was "World First, Systems Second" — map design came before mechanics, drawing inspiration from Hollow Knight. The original concept featured only three abilities and was titled "Caves of Chicago," treating Chicago as a medieval fantasy realm. This evolved into the current scope with six regions.</p>
-          <p>Key systems include Pyres (collectible braziers that unlock doors), breakable walls and secret paths, a hazard respawn system, and Azure Beads that recharge the air dash. A tutorial-focused introductory zone teaches each ability in isolation before combining them.</p>
-          <p>Every tile was hand-placed in UE5, as the engine lacks the automated tile-adaptation systems found in other engines. This constraint forced deliberate decisions about surface placement and movement readability.</p>
-
-          <h2 id="results">Results &amp; Takeaways</h2>
-          <p>Trials of Aerlynn is available for free on itch.io. Building a full Metroidvania solo in Unreal — an engine not typically used for 2D — proved that the fundamentals of level design transfer across any toolset. The hand-placement constraint became a strength, forcing every tile to be an intentional design choice.</p>
-
-          <h2 id="credits">Asset Credits</h2>
-          <ul>
-            <li><strong>Character:</strong> Woman Warrior by Dreamir</li>
-            <li><strong>Tilesets:</strong> Fantasy Winter, Ancient Temple, Fantasy Caves, Lava Caves by aamatniekss</li>
-            <li><strong>Audio:</strong> Joel Francis Buford, Joel Steudler, DanielTelesOST</li>
-            <li><strong>VFX:</strong> Smoke N Dust 2, Holy VFX by pimen</li>
-            <li><strong>UI:</strong> Shikashi, Kenney, ElvGames</li>
-          </ul>
-
-          <!-- Previous / Next nav -->
-          <nav class="project-nav" aria-label="Project navigation">
-            <a href="./devils-gambit.html" class="project-nav__link project-nav__link--prev">
-              <span class="project-nav__label">Previous Project</span>
-              <span class="project-nav__title">Devil's Gambit</span>
-            </a>
-            <a href="./planet-glasidea.html" class="project-nav__link project-nav__link--next">
-              <span class="project-nav__label">Next Project</span>
-              <span class="project-nav__title">Planet Glasidea</span>
-            </a>
+          <!-- Previous / next -->
+          <nav class="pp-nav" aria-label="More projects">
+            <a href="./devils-gambit.html" class="block">Previous: Devil's Gambit</a>
+            <a href="./index.html" class="block block--tri">All projects</a>
+            <a href="./planet-glasidea.html" class="block pp-nav__next">Next: Planet Glasidea</a>
           </nav>
 
-        </article>
-      </div>
+        </div>
+      </article>
     </main>
 
     <!-- ========== FOOTER ========== -->

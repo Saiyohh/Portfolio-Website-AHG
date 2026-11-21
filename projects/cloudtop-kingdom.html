@@ -3,120 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cloudtop Kingdom — Level design breakdown by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Cloudtop Kingdom, a 3D platformer level blockout built in Unreal Engine 5 by Alexander H Garcia.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>Cloudtop Kingdom — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-detail.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
-  <script src="../js/gallery-slider.js" defer></script>
-  <script src="../js/lightbox.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/toc.js" defer></script>
+  <script src="../js/project-viewer.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-project">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <!-- Project hero -->
-      <div class="project-hero">
-        <img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg" alt="Cloudtop Kingdom hero image">
-        <div class="project-hero__overlay">
-          <h1 class="project-hero__title">Cloudtop Kingdom</h1>
-        </div>
-      </div>
+      <article class="pp">
+        <div class="pp__panel">
 
-      <!-- Metadata bar -->
-      <div class="project-meta">
-        <div class="project-meta__item">
-          <span class="project-meta__label">Engine</span>
-          <span class="project-meta__value">Unreal Engine 5</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Role</span>
-          <span class="project-meta__value">Level Designer</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">Solo</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">2024</span>
-        </div>
-      </div>
+          <!-- Top: the work beside the facts -->
+          <header class="pp-top">
+            <div class="viewer">
+              <div class="viewer__stage">
+                <img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg" alt="Cloudtop Kingdom blockout, view 1" class="lightbox-trigger">
+              </div>
+              <div class="viewer__thumbs" style="--cols: 7">
+                <button type="button" class="viewer__thumb" aria-pressed="true" aria-label="Cloudtop Kingdom blockout, view 1" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg" data-alt="Cloudtop Kingdom blockout, view 1"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-a.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 2" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.jpg" data-alt="Cloudtop Kingdom blockout, view 2"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-b.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 3" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.jpg" data-alt="Cloudtop Kingdom blockout, view 3"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-c.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 4" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.jpg" data-alt="Cloudtop Kingdom blockout, view 4"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-d.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 5" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.jpg" data-alt="Cloudtop Kingdom blockout, view 5"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-e.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 6" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.jpg" data-alt="Cloudtop Kingdom blockout, view 6"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-f.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="Cloudtop Kingdom blockout, view 7" data-image="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.jpg" data-alt="Cloudtop Kingdom blockout, view 7"><img src="../assets/images/projects/cloudtop-kingdom/thumbnail-ss/ss-g.jpg" alt=""></button>
+              </div>
+            </div>
+            <div class="pp-facts">
+              <h1 class="pp-title">Cloudtop Kingdom</h1>
+              <p class="strip__role"><span>Level Designer, solo project</span> <span>2024</span></p>
+              <ul class="tags"><li class="tags__key tags__key--unreal">UE5.2</li><li>Level Test</li><li>Mario Odyssey</li><li>Blockout</li></ul>
+              <div class="pp-did">
+                <h2>What I did</h2>
+                <ul class="pp-list">
+                  <li>Structured the level around vertical progression through cloud platforms, castle architecture, and floating islands.</li>
+                  <li>Kept sightlines to the goal in every section, so players always know where they are heading.</li>
+                  <li>Blocked out in phases, settling jump distances and camera angles before adding visual detail.</li>
+                </ul>
+              </div>
+            </div>
+          </header>
 
-      <!-- Content with TOC -->
-      <div class="project-layout">
+          <section class="pp-section">
+            <h2>The level</h2>
+            <p>Cloudtop Kingdom is a 3D platformer level design exercise built in Unreal Engine 5, inspired by the spatial design language of Super Mario games. It is a vertically oriented kingdom with clear visual landmarks, readable platforming paths, and a sense of scale that rewards exploration.</p>
+            <p>Each section introduces a new spatial challenge. The architecture tells the story of a place built upward into the sky, with increasingly precarious platforms and grander vistas as the player climbs.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Process</h2>
+            <p>Playtesting focused on whether players could read the intended path without explicit guidance, relying on color, scale, and spatial composition to communicate direction.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Takeaways</h2>
+            <p>This project reinforced the principles of vertical level design: how elevation changes create drama, how sightlines guide the player, and how Mario-style platformers use scale and repetition to build a vocabulary of spaces the player can read intuitively.</p>
+          </section>
 
-        <!-- Desktop TOC sidebar -->
-        <aside class="project-toc">
-          <nav class="project-toc__nav" aria-label="Table of contents">
-            <p class="project-toc__title">Contents</p>
-            <ul class="project-toc__list" id="toc-list">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </nav>
-        </aside>
-
-        <!-- Main content -->
-        <article class="project-content" id="project-content">
-
-          <!-- Mobile TOC (collapsible) -->
-          <div class="project-toc-mobile">
-            <button class="project-toc-mobile__toggle" aria-expanded="false">
-              Table of Contents
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <ul class="project-toc-mobile__list" id="toc-list-mobile">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </div>
-
-          <h2 id="overview">Overview</h2>
-          <p>Cloudtop Kingdom is a 3D platformer level design exercise built in Unreal Engine 5, inspired by the spatial design language of Super Mario games. The project focuses on creating a cohesive, vertically-oriented kingdom environment with clear visual landmarks, readable platforming paths, and a sense of scale that rewards exploration.</p>
-
-          <h2 id="level-design">Level Design</h2>
-          <p>The level is structured around vertical progression — players ascend through cloud platforms, castle architecture, and floating islands. Each section introduces new spatial challenges while maintaining sightlines to the goal, giving players a constant sense of where they've been and where they're heading.</p>
-          <p>Environmental storytelling is baked into the layout: the kingdom's architecture tells the story of a place built upward into the sky, with increasingly precarious platforms and grander vistas as the player climbs higher.</p>
-
-          <h2 id="design-process">Design Process</h2>
-          <p>The level went through multiple blockout phases, starting with rough geometry to nail the jump distances and camera angles before adding visual detail. Playtesting focused on whether players could read the intended path without explicit guidance — relying on color, scale, and spatial composition to communicate direction.</p>
-
-          <h2 id="results">Results &amp; Takeaways</h2>
-          <p>This project reinforced the importance of vertical level design principles — how elevation changes create drama, how sightlines guide the player, and how Mario-style platformers use scale and repetition to build a vocabulary of spaces the player can read intuitively.</p>
-
-          <!-- Previous / Next nav -->
-          <nav class="project-nav" aria-label="Project navigation">
-            <a href="./planet-glasidea.html" class="project-nav__link project-nav__link--prev">
-              <span class="project-nav__label">Previous Project</span>
-              <span class="project-nav__title">Planet Glasidea</span>
-            </a>
-            <span></span>
+          <!-- Previous / next -->
+          <nav class="pp-nav" aria-label="More projects">
+            <a href="./planet-glasidea.html" class="block">Previous: Planet Glasidea</a>
+            <a href="./index.html" class="block block--tri">All projects</a>
           </nav>
 
-        </article>
-      </div>
+        </div>
+      </article>
     </main>
 
     <!-- ========== FOOTER ========== -->

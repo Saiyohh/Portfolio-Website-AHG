@@ -3,168 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KillCode: 404 — Level design breakdown by Alexander H Garcia.">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="KillCode: 404, a 3D FPS roguelite by Studio 300. Design direction and level design by Alexander H Garcia.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
   <title>KillCode: 404 — Alexander H Garcia</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/project-detail.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
   <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/gallery.css">
 
   <!-- Scripts -->
   <script src="../js/components.js" defer></script>
-  <script src="../js/gallery-slider.js" defer></script>
-  <script src="../js/lightbox.js" defer></script>
   <script src="../js/navbar.js" defer></script>
-  <script src="../js/toc.js" defer></script>
+  <script src="../js/project-viewer.js" defer></script>
+  <script src="../js/lightbox.js" defer></script>
 </head>
 <body>
-  <div class="site-wrapper">
+  <div class="site-wrapper world page-project">
 
     <!-- ========== NAVBAR ========== -->
     <nav id="navbar-placeholder"></nav>
 
     <!-- ========== MAIN ========== -->
     <main>
-      <!-- Project hero -->
-      <div class="project-hero">
-        <img src="../assets/images/projects/killcode-404/kc404-hero.jpg" alt="KillCode: 404 hero image">
-        <div class="project-hero__overlay">
-          <h1 class="project-hero__title">KillCode: 404</h1>
-        </div>
-      </div>
+      <article class="pp">
+        <div class="pp__panel">
 
-      <!-- Metadata bar -->
-      <div class="project-meta">
-        <div class="project-meta__item">
-          <span class="project-meta__label">Engine</span>
-          <span class="project-meta__value">Unity 5 -> 6</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Role</span>
-          <span class="project-meta__value">Lead Designer, Level Designer &amp; Narrative Designer</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Team Size</span>
-          <span class="project-meta__value">11 members</span>
-        </div>
-        <div class="project-meta__item">
-          <span class="project-meta__label">Duration</span>
-          <span class="project-meta__value">Jan 2025 — Nov 2025</span>
-        </div>
-      </div>
+          <!-- Top: the work beside the facts -->
+          <header class="pp-top">
+            <div class="viewer">
+              <div class="viewer__stage">
+                <video src="../assets/images/projects/killcode-404/gp-showcase-1.mp4" poster="../assets/images/projects/killcode-404/gp-showcase-1-poster.jpg" autoplay muted loop playsinline aria-label="KillCode: 404 gameplay, clip 1"></video>
+                <button type="button" class="block viewer__pause" aria-pressed="false">Pause</button>
+              </div>
+              <div class="viewer__thumbs" style="--cols: 3">
+                <button type="button" class="viewer__thumb" aria-pressed="true" aria-label="KillCode: 404 gameplay, clip 1" data-video="../assets/images/projects/killcode-404/gp-showcase-1.mp4" data-poster="../assets/images/projects/killcode-404/gp-showcase-1-poster.jpg"><img src="../assets/images/projects/killcode-404/gp-showcase-1-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="KillCode: 404 gameplay, clip 2" data-video="../assets/images/projects/killcode-404/gp-showcase-2.mp4" data-poster="../assets/images/projects/killcode-404/gp-showcase-2-poster.jpg"><img src="../assets/images/projects/killcode-404/gp-showcase-2-poster.jpg" alt=""></button>
+                <button type="button" class="viewer__thumb" aria-pressed="false" aria-label="KillCode: 404 gameplay, clip 3" data-video="../assets/images/projects/killcode-404/gp-showcase-3.mp4" data-poster="../assets/images/projects/killcode-404/gp-showcase-3-poster.jpg"><img src="../assets/images/projects/killcode-404/gp-showcase-3-poster.jpg" alt=""></button>
+              </div>
+            </div>
+            <div class="pp-facts">
+              <h1 class="pp-title">KillCode: 404</h1>
+              <p class="strip__role"><span>Co-Founder, Design Director &amp; Lead Level Designer @&nbsp;Studio&nbsp;300</span> <span>Team of 13</span> <span>Jan to Nov&nbsp;2025</span></p>
+              <p class="strip__award">Best in Show &middot; Overall Design</p>
+              <ul class="tags"><li class="tags__key tags__key--unity">Unity 6</li><li>FPS</li><li>Roguelite</li><li>Cyberspace</li></ul>
+              <div class="pp-links">
+                <a href="https://studio300.itch.io/killcode-404" target="_blank" rel="noopener" class="block block--cir is-filled">Play on itch.io</a>
+                <a href="https://www.youtube.com/watch?v=9CYRYZ8bM7M" target="_blank" rel="noopener" class="block">Trailer</a>
+              </div>
+              <div class="pp-did">
+                <h2>What I did</h2>
+                <ul class="pp-list">
+                  <li>Defined the game's core mechanics, weapons, and systemic frameworks from the ground up.</li>
+                  <li>Designed levels from early concept and blockout to finished playable spaces, directing a level designer on spatial design and flow.</li>
+                  <li>Developed the worldbuilding, story structure, and cinematic direction.</li>
+                  <li>Created and implemented the UI (logos, weapon icons, HUD, and menus) and integrated sound effects.</li>
+                </ul>
+              </div>
+            </div>
+          </header>
 
-      <!-- Content with TOC -->
-      <div class="project-layout">
-
-        <!-- Desktop TOC sidebar -->
-        <aside class="project-toc">
-          <nav class="project-toc__nav" aria-label="Table of contents">
-            <p class="project-toc__title">Contents</p>
-            <ul class="project-toc__list" id="toc-list">
-              <!-- Auto-populated by toc.js -->
+          <section class="pp-section">
+            <h2>The game</h2>
+            <p>KillCode: 404 is a fast-paced FPS roguelike set inside a fractured virtual world known as the Pantheon. Players step into the role of Kasey, a rogue netrunner hacking her way through hostile cyberspace to uncover the secrets buried beneath its corporate architecture.</p>
+            <p>It draws on the movement of Titanfall, the roguelike structure of RoboQuest, and the digital meta-absurdism of Ready Player One. Combat revolves around weapons inspired by Greek mythology: the Zeus atomic cannon, the Artemis lever-action shotgun, the Poseidon sniper rifle, and the Decompiler auto-shotgun, each with a distinct playstyle that interacts with the movement systems.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Level design</h2>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/killcode-404/ld-blockout-showcase.jpg" alt="Level 1, Area 1 of KillCode: 404 from initial blockout to final level design, with notes on each revision" class="lightbox-trigger" loading="lazy">
+              <figcaption>Level 1, Area 1, from first blockout to final. Select to enlarge.</figcaption>
+            </figure>
+            <figure class="pp-figure">
+              <img src="../assets/images/projects/killcode-404/ld-topdown-showcase.jpg" alt="Top-down map progression of KillCode: 404 Level 1 across five revisions" class="lightbox-trigger" loading="lazy">
+              <figcaption>Level 1, top-down map progression. Select to enlarge.</figcaption>
+            </figure>
+            <div class="pp-stills">
+              <img src="../assets/images/projects/killcode-404/blockout-1.jpg" alt="KillCode: 404 blockout, view 1" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/killcode-404/blockout-2.jpg" alt="KillCode: 404 blockout, view 2" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/killcode-404/blockout-3.jpg" alt="KillCode: 404 blockout, view 3" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/killcode-404/blockout-4.jpg" alt="KillCode: 404 blockout, view 4" class="lightbox-trigger" loading="lazy">
+              <img src="../assets/images/projects/killcode-404/blockout-5.jpg" alt="KillCode: 404 blockout, view 5" class="lightbox-trigger" loading="lazy">
+            </div>
+          </section>
+          <section class="pp-section">
+            <h2>Development</h2>
+            <p>KillCode: 404 was developed by Studio 300 over the course of 2025 as our flagship title. The team of 13 included artists, programmers, a combat designer, concept artists, a sound designer, and a music composer. I led design across all disciplines and was responsible for maintaining the creative vision throughout production.</p>
+            <p>It won Best in Show for Overall Design at the Academy of Art University 2025 Spring Show. The demo is available for download on itch.io.</p>
+          </section>
+          <section class="pp-section">
+            <h2>Team</h2>
+            <ul class="pp-credits">
+              <li><strong>Dominik Rangel</strong><span>Art Director, Founder</span></li>
+              <li><strong>Dominic Sanchez</strong><span>Programmer, Tech Artist, Founder</span></li>
+              <li><strong>Justin Bushey</strong><span>Combat Designer</span></li>
+              <li><strong>Savannah Oellrich</strong><span>3D Artist</span></li>
+              <li><strong>Augustus Laughlin</strong><span>3D Artist</span></li>
+              <li><strong>Jason Li</strong><span>Character Artist</span></li>
+              <li><strong>Colton Muheim</strong><span>Concept Artist</span></li>
+              <li><strong>Kashia Cheng</strong><span>Concept Artist</span></li>
+              <li><strong>Chris Lee</strong><span>Sound Designer</span></li>
+              <li><strong>Michael Antonio</strong><span>Music Composer</span></li>
             </ul>
-          </nav>
-        </aside>
+          </section>
 
-        <!-- Main content -->
-        <article class="project-content" id="project-content">
-
-          <!-- Mobile TOC (collapsible) -->
-          <div class="project-toc-mobile">
-            <button class="project-toc-mobile__toggle" aria-expanded="false">
-              Table of Contents
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <ul class="project-toc-mobile__list" id="toc-list-mobile">
-              <!-- Auto-populated by toc.js -->
-            </ul>
-          </div>
-
-          <h2 id="overview">Overview</h2>
-          <p>KillCode: 404 is a fast-paced FPS roguelike set inside a fractured virtual world known as the Pantheon. Players step into the role of Kasey, a rogue netrunner hacking her way through hostile cyberspace to uncover the hidden systems and secrets buried beneath its corporate architecture. The project draws inspiration from the movement of Titanfall, the roguelike structure of RoboQuest, and the digital meta-absurdism of Ready Player One.</p>
-          <p>As Lead Designer, I shaped the game's core identity from the ground up — defining key mechanics, weapons, and systemic frameworks. I designed levels from early concept and blockout to fully realized playable spaces, and developed the worldbuilding, story structure, and cinematic direction that contextualize Kasey's journey through Pantheon.</p>
-
-          <h2 id="design-role">My Design Role</h2>
-          <p>Beyond core design and narrative, I created and implemented the game's UI — logos, weapon iconography, HUD elements, and menu systems. I also integrated sound effects and contributed to polishing multiple levels, ensuring cohesion between gameplay systems, visual language, and player experience.</p>
-          <p>I had a level designer working under me, collaborating on spatial design and flow while I directed the overall vision for each environment and encounter space.</p>
-
-          <!-- Static inline image -->
-          <figure class="inline-image">
-            <img src="../assets/images/projects/killcode-404/ld-blockout-showcase.jpg" alt="KillCode: 404 blockout showcase" class="lightbox-trigger">
-          </figure>
-          <figure class="inline-image">
-            <img src="../assets/images/projects/killcode-404/ld-topdown-showcase.jpg" alt="KillCode: 404 top-down showcase" class="lightbox-trigger">
-          </figure>
-
-          <h2 id="gameplay">Gameplay Showcase</h2>
-          <p>The combat revolves around a diverse arsenal of weapons inspired by Greek mythology — the Zeus atomic cannon, the Artemis lever-action shotgun, the Poseidon sniper rifle, and the Decompiler auto-shotgun — each offering distinct playstyles that interact with the game's movement systems.</p>
-
-          <!-- Sliding gallery demo -->
-          <div class="gallery-slider" data-interval="5000">
-            <div class="gallery-slider__slide" data-caption="KillCode: 404 — Gameplay Showcase 1">
-              <video src="../assets/images/projects/killcode-404/gp-showcase-1.mp4" poster="../assets/images/projects/killcode-404/gp-showcase-1-poster.jpg" autoplay muted loop playsinline aria-label="KillCode: 404 gameplay overview"></video>
-            </div>
-            <div class="gallery-slider__slide" data-caption="KillCode: 404 — Gameplay Showcase 2">
-              <video src="../assets/images/projects/killcode-404/gp-showcase-2.mp4" poster="../assets/images/projects/killcode-404/gp-showcase-2-poster.jpg" autoplay muted loop playsinline aria-label="KillCode: 404 gameplay showcase 2"></video>
-            </div>
-            <div class="gallery-slider__slide" data-caption="KillCode: 404 — Gameplay Showcase 3">
-              <video src="../assets/images/projects/killcode-404/gp-showcase-3.mp4" poster="../assets/images/projects/killcode-404/gp-showcase-3-poster.jpg" autoplay muted loop playsinline aria-label="KillCode: 404 gameplay showcase 3"></video>
-            </div>
-          </div>
-
-          <!-- Tiled gallery demo -->
-          <div class="gallery-tiled">
-            <img src="../assets/images/projects/killcode-404/blockout-1.jpg" alt="KillCode: 404 blockout 1" class="lightbox-trigger" loading="lazy">
-            <img src="../assets/images/projects/killcode-404/blockout-2.jpg" alt="KillCode: 404 blockout 2" class="lightbox-trigger" loading="lazy">
-            <img src="../assets/images/projects/killcode-404/blockout-3.jpg" alt="KillCode: 404 blockout 3" class="lightbox-trigger" loading="lazy">
-            <img src="../assets/images/projects/killcode-404/blockout-4.jpg" alt="KillCode: 404 blockout 4" class="lightbox-trigger" loading="lazy">
-            <img src="../assets/images/projects/killcode-404/blockout-5.jpg" alt="KillCode: 404 blockout 5" class="lightbox-trigger" loading="lazy">
-          </div>
-
-          <h2 id="development">Development</h2>
-          <p>KillCode: 404 was developed by Studio 300 over the course of 2025 as our flagship title. The team of 11 included artists, programmers, a combat designer, concept artists, a sound designer, and a music composer. I led design across all disciplines and was responsible for maintaining the creative vision throughout production.</p>
-
-          <h2 id="results">Results &amp; Takeaways</h2>
-          <p>KillCode: 404 won Best in Show for Overall Design at the Academy of Art University 2025 Spring Show, validating the team's creative direction and execution. The demo is available for download on itch.io.</p>
-
-          <h2 id="team">Team</h2>
-          <ul>
-            <li><strong>Dominik Rangel</strong> — Art Director, Founder</li>
-            <li><strong>Dominic Sanchez</strong> — Programmer, Tech Artist, Founder</li>
-            <li><strong>Justin Bushey</strong> — Combat Designer</li>
-            <li><strong>Savannah Oellrich</strong> — 3D Artist</li>
-            <li><strong>Augustus Laughlin</strong> — 3D Artist</li>
-            <li><strong>Jason Li</strong> — Character Artist</li>
-            <li><strong>Colton Muheim</strong> — Concept Artist</li>
-            <li><strong>Kashia Cheng</strong> — Concept Artist</li>
-            <li><strong>Chris Lee</strong> — Sound Designer</li>
-            <li><strong>Michael Antonio</strong> — Music Composer</li>
-          </ul>
-
-          <!-- Previous / Next nav -->
-          <nav class="project-nav" aria-label="Project navigation">
-            <span></span>
-            <a href="./devils-gambit.html" class="project-nav__link project-nav__link--next">
-              <span class="project-nav__label">Next Project</span>
-              <span class="project-nav__title">Devil's Gambit</span>
-            </a>
+          <!-- Previous / next -->
+          <nav class="pp-nav" aria-label="More projects">
+            <a href="./index.html" class="block block--tri">All projects</a>
+            <a href="./devils-gambit.html" class="block pp-nav__next">Next: Devil's Gambit</a>
           </nav>
 
-        </article>
-      </div>
+        </div>
+      </article>
     </main>
 
     <!-- ========== FOOTER ========== -->

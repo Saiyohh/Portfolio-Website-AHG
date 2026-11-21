@@ -1,5 +1,5 @@
-/* Thumbnail slideshow for project cards.
-   data-slideshow on .project-card__thumbnail — continuous marquee scroll */
+/* Thumbnail slideshow for project entries.
+   data-slideshow on .strip__media — continuous marquee scroll */
 
 (function () {
   /* === Image slideshow (continuous marquee) === */
@@ -26,9 +26,7 @@
       });
     }
 
-    // Insert before engine overlay
-    var engine = container.querySelector('.project-card__engine');
-    container.insertBefore(track, engine);
+    container.appendChild(track);
 
     // Wait for images to load so we can measure the first set's width
     var images = track.querySelectorAll('img');

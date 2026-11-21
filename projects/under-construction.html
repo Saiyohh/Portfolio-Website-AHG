@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This project page is still being built. Game and level design by Alexander H Garcia.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <title>Under construction — Alexander H Garcia</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/project-page.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <!-- Scripts -->
+  <script src="../js/components.js" defer></script>
+  <script src="../js/navbar.js" defer></script>
+</head>
+<body>
+  <div class="site-wrapper world page-project">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar-placeholder"></nav>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+      <article class="pp pp--notice">
+        <div class="pp__panel">
+          <!-- The projects list links here as under-construction.html#project-id;
+               the script below swaps in that project's name. -->
+          <p class="pp-notice__flag">Under construction</p>
+          <h1 class="pp-title" id="notice-title">This project page</h1>
+          <p class="pp-notice__text">This page is under construction. In the meanwhile, take a look at some of my other <a href="./index.html" class="pp-notice__link pp-notice__link--work">work</a>, or check out my <a href="../resume.html" class="pp-notice__link pp-notice__link--resume">resume</a>.</p>
+          <div class="pp-links">
+            <a href="./index.html" class="block block--tri is-filled">All projects</a>
+            <a href="../resume.html" class="block block--sq">Resume</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="footer-placeholder"></footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var names = {
+        'pact-tactics': 'Pact Tactics',
+        'cosmic-tails': 'Cosmic Tails'
+      };
+      var name = names[location.hash.slice(1)];
+      if (!name) return;
+      document.getElementById('notice-title').textContent = name;
+      document.title = name + ' — Alexander H Garcia';
+    })();
+  </script>
+</body>
+</html>

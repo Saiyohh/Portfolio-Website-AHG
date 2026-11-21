@@ -1,4 +1,7 @@
-/* === Navbar === */
+/* === Navbar ===
+   Every link sits on a sharp outlined rectangle. On hover or keyboard focus the
+   rectangle fills from the bottom up in that link's one fixed colour (--c) and
+   the text flips to black. The current page's link stays filled. */
 .navbar {
   position: fixed;
   top: 0;
@@ -6,212 +9,393 @@
   right: 0;
   z-index: 1000;
   height: var(--navbar-height);
-  background-color: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-void);
+  border-bottom: 2px solid var(--color-line);
+  font-family: var(--font-pixel);
 }
 
 .navbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   height: 100%;
-  max-width: var(--grid-max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 clamp(16px, 2.8vw, 40px);
 }
 
 /* Logo / Name */
 .navbar__logo {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  margin-right: auto;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-text-primary);
-  transition: color var(--transition-fast);
   white-space: nowrap;
+  color: var(--color-fg);
 }
 
 .navbar__logo:hover {
-  color: var(--color-accent);
+  color: var(--color-fg);
+}
+
+/* The mark rests as AHG, one face colour per letter. On hover or focus it
+   opens to ALEX H GARCIA one word at a time (A, then H, then G), and each
+   letter hops in with a tilt, in stepped poses like the fill. */
+.navbar__logo {
+  display: flex;
+}
+
+.navbar__logo-word {
+  display: flex;
+  --d: 0ms; /* when this word starts opening */
+}
+
+.navbar__logo-word--a { color: var(--ps-triangle); }
+.navbar__logo-word--h { color: var(--ps-square); --d: 200ms; }
+.navbar__logo-word--g { color: var(--ps-cross); --d: 300ms; }
+
+.navbar__logo-cap,
+.navbar__logo-ch {
+  display: inline-block;
+}
+
+.navbar__logo-rest {
+  display: grid;
+  grid-template-columns: 0fr;
+  transition: grid-template-columns var(--fill-time) var(--fill-steps);
+}
+
+.navbar__logo-rest > span {
+  min-width: 0;
+  white-space: nowrap;
+  /* clip sideways only, so a hopping letter can rise above the line */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* the word space opens with the letters */
+.navbar__logo-word--a .navbar__logo-rest > span,
+.navbar__logo-word--h .navbar__logo-rest > span {
+  padding-right: 0;
+  transition: padding-right var(--fill-time) var(--fill-steps);
+}
+
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-rest {
+  grid-template-columns: 1fr;
+  transition-delay: var(--d);
+}
+
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-word--a .navbar__logo-rest > span,
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-word--h .navbar__logo-rest > span {
+  padding-right: 0.3em;
+  transition-delay: var(--d);
+}
+
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-cap {
+  animation: logo-nod 160ms steps(1, end) var(--d) both;
+}
+
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-ch {
+  animation: logo-hop 240ms steps(2, end) calc(var(--d) + var(--i) * 50ms) both;
+}
+
+/* the capital kicks as its word starts */
+@keyframes logo-nod {
+  50% { transform: translateY(-22%) rotate(-10deg); }
+}
+
+/* each new letter jumps up from below the line, tilts, and lands */
+@keyframes logo-hop {
+  0%   { opacity: 0; transform: translateY(70%) rotate(-24deg); }
+  50%  { opacity: 1; transform: translateY(-38%) rotate(12deg); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* --- The block: shared by nav links, the menu button and the home actions --- */
+.block {
+  --c: var(--color-fg);
+  position: relative;
+  isolation: isolate;
+  display: block;
+  overflow: hidden;
+  padding: 8px 18px;
+  border: 2px solid var(--color-line);
+  /* opaque, so the label never sits on scanlines; the fill draws above it */
+  background-color: var(--color-void);
+  font-family: var(--font-pixel);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-fg);
+  cursor: pointer;
+  /* leaving: text flips back to light once the fill has drained past it */
+  transition: color 0s linear calc(var(--fill-time) * 0.4);
+}
+
+.block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--c);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--fill-time) var(--fill-steps);
+}
+
+/* beats the global a:hover accent, including sticky hover on touch */
+.block:hover {
+  color: var(--color-fg);
+}
+
+.block--tri { --c: var(--ps-triangle); }
+.block--sq  { --c: var(--ps-square); }
+.block--cir { --c: var(--ps-circle); }
+.block--x   { --c: var(--ps-cross); }
+.block--gold { --c: var(--ps-gold); }
+
+.block.is-filled,
+.block[aria-current="page"],
+.block[aria-expanded="true"],
+.block:focus-visible,
+.block:active {
+  color: #000;
+  border-color: var(--c);
+  /* entering: text flips to black only once the fill has risen behind it */
+  transition-delay: calc(var(--fill-time) * 0.8);
+}
+
+.block.is-filled::before,
+.block[aria-current="page"]::before,
+.block[aria-expanded="true"]::before,
+.block:focus-visible::before,
+.block:active::before {
+  transform: scaleY(1);
+}
+
+/* Hover only where a pointer can hover, so a tap never leaves a link stuck filled */
+@media (hover: hover) {
+  .block:hover {
+    color: #000;
+    border-color: var(--c);
+    transition-delay: calc(var(--fill-time) * 0.8);
+  }
+
+  .block:hover::before {
+    transform: scaleY(1);
+  }
+}
+
+/* A block that rests filled (the home page's primary action) still answers:
+   a second fill in the foreground colour rises over the first. */
+.block.is-filled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-fg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--fill-time) var(--fill-steps);
+}
+
+.block.is-filled:focus-visible::after,
+.block.is-filled:active::after {
+  transform: scaleY(1);
+}
+
+@media (hover: hover) {
+  .block.is-filled:hover::after {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block,
+  .block::before,
+  .block::after,
+  .navbar__logo-rest,
+  .navbar__logo-rest > span,
+  .navbar__mobile-menu {
+    transition: none;
+  }
+
+  .navbar__logo .navbar__logo-cap,
+  .navbar__logo .navbar__logo-ch {
+    animation: none;
+  }
+}
+
+.block:focus-visible,
+.navbar__logo:focus-visible,
+.font-toggle button:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
 }
 
 /* Desktop nav links */
 .navbar__links {
   display: none;
   align-items: center;
-  gap: var(--space-xl);
+  gap: 10px;
 }
 
-.navbar__link {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
-  position: relative;
-}
-
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  transition: width var(--transition-normal);
-}
-
-.navbar__link:hover,
-.navbar__link--active {
-  color: var(--color-text-primary);
-}
-
-.navbar__link:hover::after,
-.navbar__link--active::after {
-  width: 100%;
-}
-
-/* External link icons */
-.navbar__socials {
+/* --- Body-text toggle: a two-part switch, each part an Aa set in the face
+   it turns on (pixel, then plain) --- */
+.font-toggle {
   display: none;
-  align-items: center;
-  gap: var(--space-lg);
+  margin-left: 8px;
+  border: 2px solid var(--color-line);
 }
 
-.navbar__social-link {
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
-  display: flex;
-  align-items: center;
-}
-
-.navbar__social-link:hover {
-  color: var(--color-accent);
-}
-
-.navbar__social-link svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-/* Hamburger button */
-.navbar__hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
+.font-toggle button {
+  padding: 9px 12px;
+  border: 0;
   background: none;
-  border: none;
+  min-width: 48px;
+  font-family: var(--font-pixel);
+  font-size: 26px;
+  line-height: 26px;
+  color: var(--color-grey);
   cursor: pointer;
-  padding: 8px;
 }
 
-.navbar__hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-text-primary);
-  border-radius: 1px;
-  transition: all var(--transition-normal);
+.font-toggle button[data-body-font="plain"] {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 700;
 }
 
-/* Hamburger open state */
-.navbar__hamburger[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.font-toggle button + button {
+  border-left: 2px solid var(--color-line);
 }
 
-.navbar__hamburger[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
+.font-toggle button[aria-pressed="true"] {
+  background-color: var(--color-fg);
+  color: #000;
 }
 
-.navbar__hamburger[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+@media (hover: hover) {
+  .font-toggle button[aria-pressed="false"]:hover {
+    color: var(--color-fg);
+  }
 }
 
-/* Mobile menu panel */
+/* --- Menu button (narrow screens) --- */
+.navbar__hamburger .navbar__hamburger-close,
+.navbar__hamburger[aria-expanded="true"] .navbar__hamburger-open {
+  display: none;
+}
+
+.navbar__hamburger[aria-expanded="true"] .navbar__hamburger-close {
+  display: inline;
+}
+
+/* --- Menu panel: the same blocks, stacked --- */
 .navbar__mobile-menu {
   position: fixed;
   top: var(--navbar-height);
+  left: 0;
   right: 0;
-  width: 100%;
-  max-height: calc(100vh - var(--navbar-height));
-  background-color: var(--color-bg-secondary);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-xl);
-  transform: translateY(-150%);
-  transition: transform var(--transition-slow);
   z-index: 999;
+  max-height: calc(100dvh - var(--navbar-height));
   overflow-y: auto;
+  padding: 16px;
+  background-color: var(--color-void);
+  border-bottom: 2px solid var(--color-line);
+  /* revealed top-down in the same stepped move as the fill */
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path var(--fill-time) var(--fill-steps), visibility 0s linear var(--fill-time);
 }
 
 .navbar__mobile-menu.is-open {
-  transform: translateY(0);
+  clip-path: inset(0);
+  visibility: visible;
+  transition-delay: 0s;
 }
 
-.navbar__mobile-menu .navbar__link {
-  display: block;
-  font-size: var(--text-lg);
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--color-border);
+.navbar__mobile-links {
+  display: grid;
+  gap: 10px;
 }
 
-.navbar__mobile-menu .navbar__link::after {
-  display: none;
+.navbar__mobile-menu .block {
+  padding: 14px 18px;
+  font-size: 30px;
 }
 
-.navbar__mobile-socials {
+.navbar__mobile-menu .font-toggle {
   display: flex;
-  gap: var(--space-xl);
-  padding-top: var(--space-xl);
-  margin-top: var(--space-md);
+  margin: 16px 0 0;
 }
 
-.navbar__mobile-socials .navbar__social-link svg {
-  width: 24px;
-  height: 24px;
+.navbar__mobile-menu .font-toggle button {
+  flex: 1;
+  padding: 14px 12px;
 }
 
-/* Mobile menu overlay */
+/* Menu overlay */
 .navbar__overlay {
   position: fixed;
   top: var(--navbar-height);
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-normal);
   z-index: 998;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
 }
 
 .navbar__overlay.is-visible {
-  opacity: 1;
   visibility: visible;
 }
 
-/* Desktop breakpoint */
-@media (min-width: 768px) {
-  .navbar__links {
+/* Desktop breakpoint: the mark, five links and the toggle need about 930px */
+@media (min-width: 960px) {
+  .navbar__links,
+  .navbar__inner > .font-toggle {
     display: flex;
   }
 
-  .navbar__socials {
-    display: flex;
-  }
-
-  .navbar__hamburger {
-    display: none;
-  }
-
+  .navbar__hamburger,
   .navbar__mobile-menu,
   .navbar__overlay {
     display: none;
+  }
+}
+
+/* --- Wide screens: the links sit in the middle of the bar; the mark and the
+   switch sit at the left and right edges of the page's content width, not of
+   the window. --- */
+@media (min-width: 1100px) {
+  .navbar__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 18px;
+    /* each page sets --nav-w to its own content width */
+    max-width: var(--nav-w, 1360px);
+    margin: 0 auto;
+  }
+
+  .page-projects { --nav-w: 1280px; }
+  .page-resume { --nav-w: 1160px; }
+
+  /* home: the script in index.html sets --nav-w to the width of the reel's
+     box content, so the mark and the switch line up with the reel's edges */
+  .page-home .navbar__inner {
+    max-width: max(var(--nav-w, 1360px), 900px);
+    padding: 0;
+  }
+
+  .navbar__logo {
+    justify-self: start;
+    margin-right: 0;
+  }
+
+  .navbar__inner > .font-toggle {
+    justify-self: end;
+    margin-left: 0;
   }
 }

@@ -16,6 +16,8 @@
   }
 
   function closeMenu() {
+    // keep keyboard focus on something visible when the panel hides
+    if (mobileMenu.contains(document.activeElement)) hamburger.focus();
     hamburger.setAttribute('aria-expanded', 'false');
     mobileMenu.classList.remove('is-open');
     if (overlay) overlay.classList.remove('is-visible');
@@ -41,6 +43,6 @@
 
   // Close on resize if desktop
   window.addEventListener('resize', function () {
-    if (window.innerWidth >= 768) closeMenu();
+    if (window.innerWidth >= 960) closeMenu();
   });
 })();

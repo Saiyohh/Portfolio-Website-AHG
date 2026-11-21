@@ -11,8 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* .project-meta::before is 100vw wide, which includes the scrollbar on Windows.
-     clip (not hidden) prevents the horizontal scrollbar without breaking sticky. */
+  /* clip (not hidden) stops any sideways scroll without breaking sticky */
   overflow-x: clip;
 }
 
@@ -119,6 +118,69 @@ a:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
   transform: translateY(-2px);
+}
+
+/* === The redesign world ===
+   Pages that have moved to the new look add .world to .site-wrapper: black
+   ground with scanlines in the void only (content and the footer banner cover
+   them), pixel headings, the readable sans for body text. */
+.world {
+  background:
+    repeating-linear-gradient(0deg, var(--color-scanline) 0 2px, transparent 2px 6px)
+    var(--color-void);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+.world h1,
+.world h2,
+.world h3 {
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.world ::selection {
+  background-color: var(--ps-triangle);
+  color: #000;
+}
+
+/* Footer banner */
+.world .footer {
+  margin-top: 0;
+  background-color: var(--color-banner);
+  border-top: 0;
+  font-family: var(--font-sans);
+}
+
+.world .footer p {
+  margin: 0;
+}
+
+.world .footer__copyright,
+.world .footer__info,
+.world .footer__link {
+  font-size: 0.9375em;
+  color: var(--color-grey);
+}
+
+.world .footer__link {
+  transition: none;
+}
+
+.world .footer__link:hover,
+.world .footer__link:focus-visible {
+  color: var(--color-fg);
+}
+
+.world .footer__link:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+/* The pixel face runs small for its size; lift the footer when it is chosen */
+html[data-body-font="pixel"] .world .footer {
+  font-size: 1.25em;
 }
 
 /* === Scroll lock (for lightbox) === */
